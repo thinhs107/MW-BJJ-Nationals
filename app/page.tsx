@@ -1,65 +1,184 @@
-import Image from "next/image";
+import Navbar from '@/components/Navbar'
+import Hero from '@/components/Hero'
+import Ticker from '@/components/Ticker'
+import Countdown from '@/components/Countdown'
+import EventInfo from '@/components/EventInfo'
+import About from '@/components/About'
+import Divisions from '@/components/Divisions'
+import Rules from '@/components/Rules'
+import RegisterCTA from '@/components/RegisterCTA'
+import Contact from '@/components/Contact'
+import Footer from '@/components/Footer'
+import CursorEffect from '@/components/CursorEffect'
+import ScrollReveal from '@/components/ScrollReveal'
+
+// ── JSON-LD Structured Data ────────────────────────────────────────────────
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    // SportsEvent — primary entity
+    {
+      '@type': 'SportsEvent',
+      '@id': 'https://mwbjjn.com/#event',
+      name: 'Midwest BJJ Nationals Spring 2026',
+      description:
+        'Round Robin Gi & No-Gi Brazilian Jiu Jitsu tournament celebrating 10 years. Open to all ages and skill levels.',
+      url: 'https://mwbjjn.com',
+      startDate: '2026-04-18T09:00:00-05:00',
+      endDate: '2026-04-18T20:00:00-05:00',
+      eventStatus: 'https://schema.org/EventScheduled',
+      eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+      sport: 'Brazilian Jiu Jitsu',
+      image: 'https://mwbjjn.com/og-image.jpg',
+      offers: {
+        '@type': 'Offer',
+        url: 'https://smoothcomp.com/en/event/29767',
+        name: 'Tournament Registration',
+        availability: 'https://schema.org/InStock',
+        validFrom: '2025-08-26',
+      },
+      location: {
+        '@type': 'Place',
+        name: 'South Oldham High School',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Louisville',
+          addressRegion: 'KY',
+          addressCountry: 'US',
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 38.2527,
+          longitude: -85.7585,
+        },
+      },
+      organizer: {
+        '@id': 'https://mwbjjn.com/#organization',
+      },
+    },
+
+    // Organization
+    {
+      '@type': 'SportsOrganization',
+      '@id': 'https://mwbjjn.com/#organization',
+      name: 'Midwest BJJ Nationals',
+      url: 'https://mwbjjn.com',
+      logo: 'https://mwbjjn.com/logo.png',
+      telephone: '+15023847084',
+      sport: 'Brazilian Jiu Jitsu',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Louisville',
+        addressRegion: 'KY',
+        addressCountry: 'US',
+      },
+      sameAs: [
+        'https://smoothcomp.com/en/event/29767',
+      ],
+    },
+
+    // WebSite (enables Google Sitelinks search box)
+    {
+      '@type': 'WebSite',
+      '@id': 'https://mwbjjn.com/#website',
+      url: 'https://mwbjjn.com',
+      name: 'Midwest BJJ Nationals',
+      description: 'Home of the Midwest BJJ Nationals tournament — Louisville, Kentucky',
+      publisher: { '@id': 'https://mwbjjn.com/#organization' },
+    },
+
+    // BreadcrumbList
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://mwbjjn.com',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Spring 2026 Tournament',
+          item: 'https://mwbjjn.com/#event',
+        },
+      ],
+    },
+
+    // FAQPage — helps Google show rich FAQ results
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'When is the Midwest BJJ Nationals Spring 2026?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'The Midwest BJJ Nationals Spring 2026 is on April 18, 2026 at South Oldham High School in Louisville, Kentucky.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'What format is the Midwest BJJ Nationals?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'The tournament uses a Round Robin format for both Gi and No-Gi divisions, guaranteeing competitors multiple matches.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How do I register for the Midwest BJJ Nationals?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Registration is handled through SmoothComp at smoothcomp.com/en/event/29767.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'What divisions are available at the Midwest BJJ Nationals?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Divisions include Kids No-Gi, Teen 16-17 No-Gi, Adult No-Gi, and Gi Competition for all skill levels and belt ranks.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Where is the Midwest BJJ Nationals held?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'The tournament is held at South Oldham High School in Louisville, Kentucky.',
+          },
+        },
+      ],
+    },
+  ],
+}
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      {/* Inject JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      <CursorEffect />
+      <ScrollReveal />
+      <Navbar />
+      <main>
+        <Hero />
+        <Ticker />
+        <Countdown />
+        <EventInfo />
+        <About />
+        <Divisions />
+        <Rules />
+        <RegisterCTA />
+        <Contact />
       </main>
-    </div>
-  );
+      <Footer />
+    </>
+  )
 }
