@@ -1,7 +1,11 @@
 import Link from 'next/link'
+import CursorEffect from '@/components/CursorEffect'
 
 export default function NotFound() {
   return (
+    <>
+    <CursorEffect />
+
     <div style={{
       backgroundColor: '#0a0a0a',
       color: 'white',
@@ -30,5 +34,6 @@ export default function NotFound() {
         Back to Home
       </Link>
     </div>
+    </>
   )
 }
