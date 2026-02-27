@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Bebas_Neue, Barlow, Barlow_Condensed } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const bebasNeue = Bebas_Neue({
@@ -146,7 +147,7 @@ export default function RootLayout({
         <meta name="geo.position" content="38.2527;-85.7585" />
         <meta name="ICBM" content="38.2527, -85.7585" />
       </head>
-      <body>{children}</body>
+      <body>{children}<Analytics /></body>
     </html>
   )
 }
