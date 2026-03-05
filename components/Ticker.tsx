@@ -5,7 +5,7 @@ const items = [
   { text: 'April 18, 2026 · South Oldham High School' },
   { highlight: '10th Year Anniversary', text: 'A Decade of Excellence' },
   { highlight: 'Registration Open', text: 'Sign up on SmoothComp' },
-  { text: 'Contact: (502) 384-7084 · (502) 422-1957' },
+  // { text: 'Contact: (502) 384-7084 · (502) 422-1957' },
 ]
 
 // Duplicate 3× for a seamless loop on all screen sizes

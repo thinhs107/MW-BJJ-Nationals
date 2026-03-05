@@ -4,7 +4,7 @@ import { SectionDivider, SectionTitle } from './EventInfo'
 
 const contacts = [
   { icon:'📞', label:'Phone',    value:'(502) 384-7084', href:'tel:5023847084' },
-  { icon:'📱', label:'Cell',     value:'(502) 422-1957', href:'tel:5024221957' },
+  // { icon:'📱', label:'Cell',     value:'(502) 422-1957', href:'tel:5024221957' },
   { icon:'📍', label:'Venue',    value:'5901 Veterans Memorial Pkwy, Crestwood, KY 40014' },
   { icon:'🌐', label:'Register', value:'smoothcomp.com/en/event/29767', href:'https://smoothcomp.com/en/event/29767' },
 ]
