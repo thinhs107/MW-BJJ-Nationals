@@ -44,6 +44,20 @@ export default function Footer() {
               One of the most organized tournaments in the region. Celebrating 10 years of bringing
               together the BJJ community.
             </p>
+                     
+           {/* QR Code */}
+            <div style={{ marginTop:'20px' }}>
+              <img
+                src="/qrcode.png"
+                alt="Scan to visit mwbjjn.com"
+                width={100}
+                height={100}
+                style={{ display:'block', borderRadius:'4px' }}
+              />
+              <p style={{ fontSize:'11px', color:'#555555', letterSpacing:'2px', marginTop:'6px', textTransform:'uppercase', fontFamily:'var(--font-barlow-condensed)' }}>
+                Scan to register
+              </p>
+            </div>
           </div>
 
           {/* Link columns */}

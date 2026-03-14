@@ -357,6 +357,20 @@ export default function Hero() {
           </a>
         </div>
 
+          {/* QR Code */}
+          <div style={{ display:'flex', flexDirection:'column', alignItems:'center', marginTop:'24px', width:'fit-content' }} >
+            <img
+              src="/qrcode.png"
+              alt="Scan to visit mwbjjn.com"
+              width={100}
+              height={100}
+              style={{ display:'block', borderRadius:'4px' }}
+            />
+            <p style={{ fontSize:'11px', color:'#555555', letterSpacing:'2px', marginTop:'6px', textTransform:'uppercase', fontFamily:'var(--font-barlow-condensed)' }}>
+              Scan to register
+            </p>
+          </div>
+
         {/* ── Mobile carousel ── */}
         <div
           className="hero-mobile-stack"
