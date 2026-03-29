@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import DivisionPageLayout from '@/components/divisions/DivisionPageLayout'
 import CursorEffect from '@/components/CursorEffect'
 
-
 export const metadata: Metadata = {
   title: 'Teen 16–17 No-Gi Division Rules',
   description:
@@ -18,85 +17,100 @@ export const metadata: Metadata = {
 export default function TeenNoGiPage() {
   return (
     <>
-    <CursorEffect />
-
-    <DivisionPageLayout
-      badge="Teen Division"
-      icon="🧑"
-      title="Teen 16–17"
-      subtitle="No-Gi Division"
-      description="The Teen 16–17 No-Gi division bridges the gap between junior and adult competition. Athletes in this bracket will face a more complete ruleset — including expanded submission options — while competing in a safe, structured environment that prepares them for adult-level competition."
-      sections={[
-        {
-          title: 'Scoring System',
-          rows: [
-            { label: 'Takedown',           value: '2 points' },
-            { label: 'Sweep',              value: '2 points' },
-            { label: 'Guard Pass',         value: '3 points' },
-            { label: 'Knee on Belly',      value: '2 points' },
-            { label: 'Mount / Back Mount', value: '4 points' },
-            { label: 'Submission',         value: 'Immediate win' },
-            { label: 'Advantage',          value: 'Near-scoring positions — tiebreaker only' },
-            { label: 'Penalty',            value: 'Stalling, fleeing, or unsportsmanlike conduct' },
-          ],
-        },
-        {
-          title: 'Permitted Submissions',
-          rows: [
-            { label: 'Chokes',       value: 'All chokes permitted — RNC, guillotine, triangle, D\'Arce, anaconda, etc.' },
-            { label: 'Arm locks',    value: 'Straight armbar, Kimura, Americana, Omoplata' },
-            { label: 'Leg locks',    value: 'Straight ankle lock and kneebar permitted. No heel hooks (inside or outside). No twisting knee locks.' },
-            { label: 'Neck cranks',  value: 'Not permitted' },
-            { label: 'Wrist locks',  value: 'Not permitted' },
-            { label: 'Slam defense', value: 'Slamming to escape a submission is not permitted' },
-          ],
-        },
-        {
-          title: 'Attire & Equipment',
-          rows: [
-            { label: 'Top',        value: 'Rash guard required (short or long sleeve)' },
-            { label: 'Bottoms',    value: 'Board shorts, spats, or compression shorts. No pockets or belt loops.' },
-            { label: 'Footwear',   value: 'No shoes on the mat' },
-            { label: 'Jewelry',    value: 'No jewelry. Medical alert bracelets must be taped.' },
-            { label: 'Mouthguard', value: 'Strongly recommended' },
-          ],
-        },
-        {
-          title: 'General Rules',
-          rows: [
-            { label: 'Format',         value: 'Round Robin — guaranteed multiple matches' },
-            { label: 'Overtime',       value: 'Sudden death referee position. Alternating attempts if still tied.' },
-            { label: 'Out of bounds',  value: 'Match paused. Restarted standing unless a submission is in progress.' },
-            { label: 'Stalling',       value: 'Verbal warning followed by penalty point. Repeated stalling may result in disqualification.' },
-            { label: 'Injury timeout', value: '2 minutes. If competitor cannot continue, loss by injury default.' },
-            { label: 'Coaches',        value: 'One coach in designated corner. No outside interference.' },
-          ],
-        },
-      ]}
-      ageGroups={[
-        { age: 'Age 16', time: '5 min', overtime: '2 min' },
-        { age: 'Age 17', time: '5 min', overtime: '2 min' },
-      ]}
-      weightClasses={[
-        {
-          division: 'Teen Boys 16–17',
-          weights: ['120 lbs', '134 lbs', '145 lbs', '158 lbs', '170 lbs', '185 lbs', '200 lbs', '200+ lbs'],
-        },
-        {
-          division: 'Teen Girls 16–17',
-          weights: ['105 lbs', '115 lbs', '125 lbs', '138 lbs', '150 lbs', '165 lbs', '165+ lbs'],
-        },
-      ]}
-      notes={[
-        'Competitors must be 16 or 17 years old as of the date of competition.',
-        'A parent or guardian must be present at the venue and sign all required waivers.',
-        'Competitors may move up to the Adult division at their own request, but not down to the Kids division.',
-        'Weigh-in is the morning of the event. A 1 lb allowance is given.',
-        'In the event of a tie, match outcome is determined by: submission count → advantages → penalties → referee decision.',
-      ]}
-      prevDivision={{ label: 'Kids No-Gi', href: '/divisions/kids-no-gi' }}
-      nextDivision={{ label: 'Adult No-Gi', href: '/divisions/adult-no-gi' }}
-    />
+      <CursorEffect />
+      <DivisionPageLayout
+        badge="Teen Division"
+        icon="🧑"
+        title="Teen 16–17"
+        subtitle="No-Gi Division"
+        description="The Teen 16–17 No-Gi division bridges the gap between junior and adult competition. Athletes compete under an expanded ruleset with more submission options, in a safe and structured environment that prepares them for adult-level competition."
+        sections={[
+          {
+            title: 'Novice / Intermediate — Allowed Techniques',
+            rows: [
+              { label: 'Submissions',  value: 'Standing Submissions, Ezekiel Choke' },
+              { label: 'Chokes',       value: 'Triangle With and Without Head Pull, Arm Triangle Chokes, Guillotine' },
+              { label: 'Arm locks',    value: 'Arm Bars, Shoulder Locks, Omoplata' },
+              { label: 'Leg locks',    value: 'Straight Ankle Lock' },
+              { label: 'Other',        value: 'Gogo Plata' },
+            ],
+          },
+          {
+            title: 'Novice / Intermediate — Prohibited Techniques',
+            rows: [
+              { label: 'Takedowns',   value: 'No Scissors Takedowns, No Slams' },
+              { label: 'Guard',       value: 'No Jumping Guard' },
+              { label: 'Joint locks', value: 'No Wrist Lock, No Bicep/Calf Slicer' },
+              { label: 'Leg attacks', value: 'No Knee Bar, No Toe Hold, No Heel Hook, No Knee Reap, No Leg Splitting Submissions' },
+              { label: 'Spine/Neck',  value: 'No Neck Crank, No Spine Manipulation' },
+              { label: 'Chokes',      value: 'No Smoother Choke (Hand Over Mouth), No Standing Guillotine' },
+            ],
+          },
+          {
+            title: 'Advanced — Allowed Techniques',
+            rows: [
+              { label: 'Submissions',  value: 'Standing Submissions, Standing Guillotine' },
+              { label: 'Chokes',       value: 'Triangle with Head Pull, Triangle without Head Pull, Collar Chokes, Arm Triangle Chokes, Ezekiel Choke, Guillotine' },
+              { label: 'Arm locks',    value: 'Arm Bars, Shoulder Locks, Omoplata' },
+              { label: 'Joint locks',  value: 'Wrist Lock, Straight Ankle Lock' },
+              { label: 'Other',        value: 'Gogo Plata' },
+            ],
+          },
+          {
+            title: 'Advanced — Prohibited Techniques',
+            rows: [
+              { label: 'Takedowns',   value: 'No Scissors Takedowns, No Slams' },
+              { label: 'Guard',       value: 'No Jumping Guard' },
+              { label: 'Leg attacks', value: 'No Knee Bar, No Toe Hold, No Heel Hook, No Knee Reap, No Bicep/Calf Slicer, No Leg Splitting Submissions' },
+              { label: 'Spine/Neck',  value: 'No Neck Crank, No Spine Manipulation' },
+              { label: 'Chokes',      value: 'No Smoother Choke (Hand Over Mouth)' },
+            ],
+          },
+          {
+            title: 'General Rules',
+            rows: [
+              { label: 'Format',       value: 'Round Robin — guaranteed multiple matches' },
+              { label: 'Stalling',     value: '1st – Warning · 2nd – 2 points to opponent · 3rd – Disqualification' },
+              { label: 'Immediate DQ', value: 'Slamming, illegal techniques, unsportsmanlike conduct, arguing with referee, fleeing the mat' },
+              { label: 'Mouthguard',   value: 'Required for all competitors' },
+              { label: 'Tie-breaker',  value: 'Advantages → first takedown → referee decision' },
+            ],
+          },
+          {
+            title: 'Attire',
+            rows: [
+              { label: 'Top',        value: 'Rashguard or fitted T-shirt covering torso and shoulders. No tank tops or sports bras.' },
+              { label: 'Bottoms',    value: 'Shorts or spats fully covering buttocks. No zippers, pockets, or exposed drawstrings. Not overly baggy.' },
+              { label: 'Prohibited', value: 'No hard pads, jewelry, or plastic/metal cups. No wrestling shoes.' },
+              { label: 'Hygiene',    value: 'Gear must be clean, odor-free, and must not interfere with competition' },
+            ],
+          },
+        ]}
+        ageGroups={[
+          { age: 'Age 16', time: '5 min', overtime: '2 min' },
+          { age: 'Age 17', time: '5 min', overtime: '2 min' },
+        ]}
+        weightClasses={[
+          {
+            division: 'Teen Boys 16–17',
+            weights: ['120 lbs', '134 lbs', '145 lbs', '158 lbs', '170 lbs', '185 lbs', '200 lbs', '200+ lbs'],
+          },
+          {
+            division: 'Teen Girls 16–17',
+            weights: ['105 lbs', '115 lbs', '125 lbs', '138 lbs', '150 lbs', '165 lbs', '165+ lbs'],
+          },
+        ]}
+        notes={[
+          'Competitors must be 16 or 17 years old as of the date of competition.',
+          'A parent or guardian must be present at the venue and sign all required waivers.',
+          'No weight allowance at weigh-ins.',
+          'Tournament staff reserve the right to combine or subdivide divisions based on turnout.',
+          'Team points: 1st = 5 pts, 2nd = 3 pts, 3rd = 1 pt.',
+          'Team points are not awarded for divisions with only 1 competitor.',
+        ]}
+        prevDivision={{ label: 'Kids No-Gi', href: '/divisions/kids-no-gi' }}
+        nextDivision={{ label: 'Adult No-Gi', href: '/divisions/adult-no-gi' }}
+      />
     </>
   )
 }
