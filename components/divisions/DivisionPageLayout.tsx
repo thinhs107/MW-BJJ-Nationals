@@ -16,7 +16,10 @@ interface DivisionPageProps {
   description: string
   accentColor?: string
   sections: Section[]
+  /** Age-based time limits (e.g. GI page) */
   ageGroups?: { age: string; time: string; overtime?: string }[]
+  /** Rank/skill-based time limits (e.g. Adult No-Gi page) */
+  rankGroups?: { rank: string; time: string; overtime?: string }[]
   weightClasses?: { division: string; weights: string[] }[]
   notes?: string[]
   prevDivision?: { label: string; href: string }
@@ -31,6 +34,7 @@ export default function DivisionPageLayout({
   description,
   sections,
   ageGroups,
+  rankGroups,
   weightClasses,
   notes,
   prevDivision,
@@ -68,7 +72,6 @@ export default function DivisionPageLayout({
           letterSpacing: '3px', color: '#CC0000',
         }}>MW BJJ NATIONALS</span>
 
-        {/* Register CTA */}
         <a
           href="https://smoothcomp.com/en/event/29767"
           target="_blank" rel="noopener noreferrer"
@@ -96,7 +99,6 @@ export default function DivisionPageLayout({
         background: 'linear-gradient(135deg, #1a0000 0%, #0A0A0A 60%)',
         borderBottom: '1px solid #222',
       }}>
-        {/* Grid bg */}
         <div style={{
           position: 'absolute', inset: 0,
           backgroundImage: `
@@ -105,14 +107,12 @@ export default function DivisionPageLayout({
           `,
           backgroundSize: '50px 50px',
         }} />
-        {/* Red gradient edge */}
         <div style={{
           position: 'absolute', left: 0, top: 0, bottom: 0, width: '4px',
           background: '#CC0000',
         }} />
 
         <div style={{ position: 'relative', zIndex: 1, padding: '48px 24px 40px' }}>
-          {/* Badge */}
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
             background: 'rgba(204,0,0,0.12)', border: '1px solid rgba(204,0,0,0.35)',
@@ -125,7 +125,6 @@ export default function DivisionPageLayout({
             {badge}
           </div>
 
-          {/* Title */}
           <h1 style={{
             fontFamily: 'var(--font-bebas)',
             fontSize: 'clamp(48px, 10vw, 100px)',
@@ -143,7 +142,6 @@ export default function DivisionPageLayout({
             {description}
           </p>
 
-          {/* Event meta */}
           <div style={{
             display: 'flex', gap: '24px', marginTop: '28px',
             flexWrap: 'wrap',
@@ -171,7 +169,7 @@ export default function DivisionPageLayout({
       {/* Main content */}
       <div style={{ maxWidth: '960px', margin: '0 auto', padding: '48px 24px 80px' }}>
 
-        {/* Rule sections as accordion */}
+        {/* Rule sections accordion */}
         <div style={{ marginBottom: '48px' }}>
           <div style={{
             fontFamily: 'var(--font-barlow-condensed)', fontWeight: 700,
@@ -192,7 +190,6 @@ export default function DivisionPageLayout({
                 transition: 'border-color 0.2s',
               }}
             >
-              {/* Accordion header */}
               <button
                 onClick={() => setOpenSection(openSection === si ? null : si)}
                 style={{
@@ -217,7 +214,6 @@ export default function DivisionPageLayout({
                 </span>
               </button>
 
-              {/* Accordion body */}
               {openSection === si && (
                 <div style={{ padding: '0 24px 20px' }}>
                   <table style={{ width: '100%', borderCollapse: 'collapse' }}>
@@ -252,7 +248,7 @@ export default function DivisionPageLayout({
           ))}
         </div>
 
-        {/* Age groups / time limits */}
+        {/* Age-based time limits (GI) */}
         {ageGroups && (
           <div style={{ marginBottom: '48px' }}>
             <div style={{
@@ -290,6 +286,51 @@ export default function DivisionPageLayout({
                       fontFamily: 'var(--font-barlow)', fontSize: '12px',
                       color: '#666', marginTop: '4px',
                     }}>OT: {ag.overtime}</div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Rank/skill-based time limits (No-Gi) */}
+        {rankGroups && (
+          <div style={{ marginBottom: '48px' }}>
+            <div style={{
+              fontFamily: 'var(--font-barlow-condensed)', fontWeight: 700,
+              fontSize: '11px', letterSpacing: '5px', color: '#CC0000',
+              textTransform: 'uppercase', marginBottom: '24px',
+            }}>
+              Skill Bracket Time Limits
+            </div>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+              gap: '2px',
+            }}>
+              {rankGroups.map((rg, i) => (
+                <div key={i} style={{
+                  background: '#161616', padding: '20px',
+                  borderTop: '2px solid #222',
+                  transition: 'border-color 0.2s',
+                }}
+                  onMouseEnter={e => (e.currentTarget.style.borderTopColor = '#CC0000')}
+                  onMouseLeave={e => (e.currentTarget.style.borderTopColor = '#222')}
+                >
+                  <div style={{
+                    fontFamily: 'var(--font-bebas)', fontSize: '28px',
+                    color: '#CC0000', lineHeight: 1,
+                  }}>{rg.time}</div>
+                  <div style={{
+                    fontFamily: 'var(--font-barlow-condensed)', fontWeight: 700,
+                    fontSize: '13px', letterSpacing: '1px', color: '#F5F5F5',
+                    marginTop: '4px',
+                  }}>{rg.rank}</div>
+                  {rg.overtime && (
+                    <div style={{
+                      fontFamily: 'var(--font-barlow)', fontSize: '12px',
+                      color: '#666', marginTop: '4px',
+                    }}>OT: {rg.overtime}</div>
                   )}
                 </div>
               ))}
