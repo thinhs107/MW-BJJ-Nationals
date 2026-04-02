@@ -90,16 +90,16 @@ export default function TeenNoGiPage() {
           { age: 'Age 16', time: '5 min', overtime: '2 min' },
           { age: 'Age 17', time: '5 min', overtime: '2 min' },
         ]}
-        weightClasses={[
-          {
-            division: 'Teen Boys 16–17',
-            weights: ['120 lbs', '134 lbs', '145 lbs', '158 lbs', '170 lbs', '185 lbs', '200 lbs', '200+ lbs'],
-          },
-          {
-            division: 'Teen Girls 16–17',
-            weights: ['105 lbs', '115 lbs', '125 lbs', '138 lbs', '150 lbs', '165 lbs', '165+ lbs'],
-          },
-        ]}
+        // weightClasses={[
+        //   {
+        //     division: 'Teen Boys 16–17',
+        //     weights: ['120 lbs', '134 lbs', '145 lbs', '158 lbs', '170 lbs', '185 lbs', '200 lbs', '200+ lbs'],
+        //   },
+        //   {
+        //     division: 'Teen Girls 16–17',
+        //     weights: ['105 lbs', '115 lbs', '125 lbs', '138 lbs', '150 lbs', '165 lbs', '165+ lbs'],
+        //   },
+        // ]}
         notes={[
           'Competitors must be 16 or 17 years old as of the date of competition.',
           'A parent or guardian must be present at the venue and sign all required waivers.',
