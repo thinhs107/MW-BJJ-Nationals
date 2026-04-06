@@ -93,16 +93,6 @@ export default function AdultNoGiPage() {
           { rank: 'Intermediate', time: '6 min'},
           { rank: 'Advanced',     time: '7 min'},
         ]}
-        weightClasses={[
-          {
-            division: 'Male',
-            weights: ['145 lbs', '158 lbs', '170 lbs', '185 lbs', '200 lbs', '215 lbs', '230 lbs', '230+ lbs'],
-          },
-          {
-            division: 'Female',
-            weights: ['115 lbs', '125 lbs', '135 lbs', '145 lbs', '160 lbs', '175 lbs', '175+ lbs'],
-          },
-        ]}
         notes={[
           'Each competitor may register in ONE division only.',
           'No weight allowance at weigh-ins.',
