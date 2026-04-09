@@ -249,94 +249,9 @@ export default function DivisionPageLayout({
         </div>
 
         {/* Age-based time limits (GI) */}
-        {ageGroups && (
-          <div style={{ marginBottom: '48px' }}>
-            <div style={{
-              fontFamily: 'var(--font-barlow-condensed)', fontWeight: 700,
-              fontSize: '11px', letterSpacing: '5px', color: '#CC0000',
-              textTransform: 'uppercase', marginBottom: '24px',
-            }}>
-              Match Time Limits
-            </div>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-              gap: '2px',
-            }}>
-              {ageGroups.map((ag, i) => (
-                <div key={i} style={{
-                  background: '#161616', padding: '20px',
-                  borderTop: '2px solid #222',
-                  transition: 'border-color 0.2s',
-                }}
-                  onMouseEnter={e => (e.currentTarget.style.borderTopColor = '#CC0000')}
-                  onMouseLeave={e => (e.currentTarget.style.borderTopColor = '#222')}
-                >
-                  {/* <div style={{
-                    fontFamily: 'var(--font-bebas)', fontSize: '28px',
-                    color: '#CC0000', lineHeight: 1,
-                  }}>{ag.time}</div> */}
-                  <div style={{
-                    fontFamily: 'var(--font-barlow-condensed)', fontWeight: 700,
-                    fontSize: '13px', letterSpacing: '1px', color: '#F5F5F5',
-                    marginTop: '4px',
-                  }}>{ag.age}</div>
-                  {/* {ag.overtime && (
-                    <div style={{
-                      fontFamily: 'var(--font-barlow)', fontSize: '12px',
-                      color: '#666', marginTop: '4px',
-                    }}>OT: {ag.overtime}</div>
-                  )} */}
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
 
         {/* Rank/skill-based time limits (No-Gi) */}
-        {rankGroups && (
-          <div style={{ marginBottom: '48px' }}>
-            <div style={{
-              fontFamily: 'var(--font-barlow-condensed)', fontWeight: 700,
-              fontSize: '11px', letterSpacing: '5px', color: '#CC0000',
-              textTransform: 'uppercase', marginBottom: '24px',
-            }}>
-              Skill Bracket Time Limits
-            </div>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-              gap: '2px',
-            }}>
-              {rankGroups.map((rg, i) => (
-                <div key={i} style={{
-                  background: '#161616', padding: '20px',
-                  borderTop: '2px solid #222',
-                  transition: 'border-color 0.2s',
-                }}
-                  onMouseEnter={e => (e.currentTarget.style.borderTopColor = '#CC0000')}
-                  onMouseLeave={e => (e.currentTarget.style.borderTopColor = '#222')}
-                >
-                  {/* <div style={{
-                    fontFamily: 'var(--font-bebas)', fontSize: '28px',
-                    color: '#CC0000', lineHeight: 1,
-                  }}>{rg.time}</div> */}
-                  <div style={{
-                    fontFamily: 'var(--font-barlow-condensed)', fontWeight: 700,
-                    fontSize: '13px', letterSpacing: '1px', color: '#F5F5F5',
-                    marginTop: '4px',
-                  }}>{rg.rank}</div>
-                  {/* {rg.overtime && (
-                    <div style={{
-                      fontFamily: 'var(--font-barlow)', fontSize: '12px',
-                      color: '#666', marginTop: '4px',
-                    }}>OT: {rg.overtime}</div>
-                  )} */}
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+
 
         {/* Weight classes */}
         {weightClasses && (
