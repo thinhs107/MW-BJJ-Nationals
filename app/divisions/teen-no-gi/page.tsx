@@ -87,8 +87,8 @@ export default function TeenNoGiPage() {
           },
         ]}
         ageGroups={[
-          { age: 'Age 16', time: '5 min', overtime: '2 min' },
-          { age: 'Age 17', time: '5 min', overtime: '2 min' },
+          { age: 'Age 16' },
+          { age: 'Age 17' },
         ]}
         // weightClasses={[
         //   {

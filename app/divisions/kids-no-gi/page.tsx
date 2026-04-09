@@ -88,11 +88,11 @@ export default function KidsNoGiPage() {
           },
         ]}
         ageGroups={[
-          { age: 'Age 6–7',   time: '3 min' },
-          { age: 'Age 8–9',   time: '3 min' },
-          { age: 'Age 10–11', time: '4 min' },
-          { age: 'Age 12–13', time: '4 min' },
-          { age: 'Age 14–15', time: '4 min' },
+          { age: 'Age 6–7' },
+          { age: 'Age 8–9' },
+          { age: 'Age 10–11'},
+          { age: 'Age 12–13'},
+          { age: 'Age 14–15'},
         ]}
         // weightClasses={[
         //   {
