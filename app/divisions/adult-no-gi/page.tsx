@@ -89,9 +89,9 @@ export default function AdultNoGiPage() {
           },
         ]}
         rankGroups={[
-          { rank: 'Beginner',     time: '5 min'},
-          { rank: 'Intermediate', time: '6 min'},
-          { rank: 'Advanced',     time: '7 min'},
+          { rank: 'Beginner'},
+          { rank: 'Intermediate'},
+          { rank: 'Advanced'},
         ]}
         notes={[
           'Each competitor may register in ONE division only.',

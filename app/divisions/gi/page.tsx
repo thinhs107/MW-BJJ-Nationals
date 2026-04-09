@@ -128,15 +128,25 @@ export default function GiPage() {
           //   ],
           // },
         ]}
+        // ageGroups={[
+        //   { age: 'Kids 6-7',       time: '3 min'},
+        //   { age: 'Kids 8-9',       time: '3 min'},
+        //   { age: 'Kids 10-11',       time: '4 min'},
+        //   { age: 'Kids 12-13', time: '4 min'},
+        //   { age: 'Juniors',  time: '5 min'},
+        //   { age: 'Adults (M/F) - White Belt',   time: '5 min'},
+        //   { age: 'Adults (M/F) - Blue Belt',   time: '6 min'},
+        //   { age: 'Adults (M/F) - Purple Belt and Upper',   time: '8 min'},
+        // ]}
         ageGroups={[
-          { age: 'Kids 6-7',       time: '3 min'},
-          { age: 'Kids 8-9',       time: '3 min'},
-          { age: 'Kids 10-11',       time: '4 min'},
-          { age: 'Kids 12-13', time: '4 min'},
-          { age: 'Juniors',  time: '5 min'},
-          { age: 'Adults (M/F) - White Belt',   time: '5 min'},
-          { age: 'Adults (M/F) - Blue Belt',   time: '6 min'},
-          { age: 'Adults (M/F) - Purple Belt and Upper',   time: '8 min'},
+          { age: 'Kids 6-7'},
+          { age: 'Kids 8-9'},
+          { age: 'Kids 10-11'},
+          { age: 'Kids 12-13'},
+          { age: 'Juniors'},
+          { age: 'Adults (M/F) - White Belt'},
+          { age: 'Adults (M/F) - Blue Belt'},
+          { age: 'Adults (M/F) - Purple Belt and Upper'},
         ]}
         // weightClasses={[
         //   {

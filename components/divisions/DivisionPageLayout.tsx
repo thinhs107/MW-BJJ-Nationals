@@ -17,9 +17,9 @@ interface DivisionPageProps {
   accentColor?: string
   sections: Section[]
   /** Age-based time limits (e.g. GI page) */
-  ageGroups?: { age: string; time: string; overtime?: string }[]
+  ageGroups?: { age: string}[]
   /** Rank/skill-based time limits (e.g. Adult No-Gi page) */
-  rankGroups?: { rank: string; time: string; overtime?: string }[]
+  rankGroups?: { rank: string}[]
   weightClasses?: { division: string; weights: string[] }[]
   notes?: string[]
   prevDivision?: { label: string; href: string }
@@ -272,21 +272,21 @@ export default function DivisionPageLayout({
                   onMouseEnter={e => (e.currentTarget.style.borderTopColor = '#CC0000')}
                   onMouseLeave={e => (e.currentTarget.style.borderTopColor = '#222')}
                 >
-                  <div style={{
+                  {/* <div style={{
                     fontFamily: 'var(--font-bebas)', fontSize: '28px',
                     color: '#CC0000', lineHeight: 1,
-                  }}>{ag.time}</div>
+                  }}>{ag.time}</div> */}
                   <div style={{
                     fontFamily: 'var(--font-barlow-condensed)', fontWeight: 700,
                     fontSize: '13px', letterSpacing: '1px', color: '#F5F5F5',
                     marginTop: '4px',
                   }}>{ag.age}</div>
-                  {ag.overtime && (
+                  {/* {ag.overtime && (
                     <div style={{
                       fontFamily: 'var(--font-barlow)', fontSize: '12px',
                       color: '#666', marginTop: '4px',
                     }}>OT: {ag.overtime}</div>
-                  )}
+                  )} */}
                 </div>
               ))}
             </div>
@@ -317,21 +317,21 @@ export default function DivisionPageLayout({
                   onMouseEnter={e => (e.currentTarget.style.borderTopColor = '#CC0000')}
                   onMouseLeave={e => (e.currentTarget.style.borderTopColor = '#222')}
                 >
-                  <div style={{
+                  {/* <div style={{
                     fontFamily: 'var(--font-bebas)', fontSize: '28px',
                     color: '#CC0000', lineHeight: 1,
-                  }}>{rg.time}</div>
+                  }}>{rg.time}</div> */}
                   <div style={{
                     fontFamily: 'var(--font-barlow-condensed)', fontWeight: 700,
                     fontSize: '13px', letterSpacing: '1px', color: '#F5F5F5',
                     marginTop: '4px',
                   }}>{rg.rank}</div>
-                  {rg.overtime && (
+                  {/* {rg.overtime && (
                     <div style={{
                       fontFamily: 'var(--font-barlow)', fontSize: '12px',
                       color: '#666', marginTop: '4px',
                     }}>OT: {rg.overtime}</div>
-                  )}
+                  )} */}
                 </div>
               ))}
             </div>
