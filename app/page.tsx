@@ -11,6 +11,7 @@ import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import CursorEffect from '@/components/CursorEffect'
 import ScrollReveal from '@/components/ScrollReveal'
+import ThankYouPage from '@/components/ThankYouPage'
 
 // ── JSON-LD Structured Data ────────────────────────────────────────────────
 const jsonLd = {
@@ -168,7 +169,7 @@ export default function Home() {
       <ScrollReveal />
       <Navbar />
       <main>
-        <Hero />
+        {/* <Hero />
         <Ticker />
         <Countdown />
         <EventInfo />
@@ -176,7 +177,8 @@ export default function Home() {
         <Divisions />
         <Rules />
         <RegisterCTA />
-        <Contact />
+        <Contact /> */}
+        <ThankYouPage />
       </main>
       <Footer />
     </>
