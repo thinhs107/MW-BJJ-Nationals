@@ -148,20 +148,7 @@ export default function ThankYouPage() {
           {/* ── PORTRAIT STACK ── */}
           <div style={{ position: 'relative', width: 520, height: 380, marginBottom: 52, flexShrink: 0 }}>
 
-            {/* Left logo */}
-            <div style={{
-              position: 'absolute',
-              top: '50%', left: 0,
-              transform: 'translateY(-50%)',
-              width: 120, height: 120,
-              borderRadius: 4, overflow: 'hidden', opacity: 0.7,
-            }}>
-              <img
-                src="/GracieOfKy-Jtown.jpg"
-                alt="Gracie Jiu-Jitsu Kentucky Jtown"
-                style={{ width: '100%', height: '100%', objectFit: 'contain', filter: 'brightness(1.2)' }}
-              />
-            </div>
+ 
 
             {/* Center client photo */}
             <div style={{
@@ -179,20 +166,6 @@ export default function ThankYouPage() {
               />
             </div>
 
-            {/* Right logo */}
-            <div style={{
-              position: 'absolute',
-              top: '50%', right: 0,
-              transform: 'translateY(-50%)',
-              width: 120, height: 120,
-              borderRadius: 4, overflow: 'hidden', opacity: 0.7,
-            }}>
-              <img
-                src="/GracieOfKy-Shelby.jpg"
-                alt="Gracie Jiu-Jitsu Kentucky Shelby"
-                style={{ width: '100%', height: '100%', objectFit: 'contain', filter: 'brightness(1.2)' }}
-              />
-            </div>
 
           </div>
           {/* / portrait stack */}
@@ -321,6 +294,12 @@ export default function ThankYouPage() {
             ))}
           </div>
         )}
+
+        <div>
+            <p style={{ textAlign: 'center', color: 'rgba(244,241,238,0.2)', fontFamily: "'Crimson Pro', Georgia, serif", fontStyle: 'italic', fontSize: 16, padding: '40px 0' }}>
+            Captured by Quincy Brents — check out his work on Facebook: facebook.com/qbrents
+          </p>
+        </div>
 
       </section>
 
