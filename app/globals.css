@@ -2,16 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ===================== THEME ===================== */
+/* Same variable names as before, so any other component file that
+   already references var(--black), var(--white), etc. keeps working
+   without edits — only the values changed, from a dark theme to a
+   white / black / red "fight poster" theme. */
 :root {
-  --red: #CC0000;
-  --red-hot: #FF1A1A;
-  --red-dark: #8B0000;
-  --black: #0A0A0A;
-  --black-mid: #111111;
-  --black-card: #161616;
-  --black-border: #222222;
-  --white: #F5F5F5;
-  --white-dim: #AAAAAA;
+  --red: #C8102E;
+  --red-hot: #E8112F;
+  --red-dark: #7A0C1E;
+  --black: #0A0A0A;       /* primary text / headlines */
+  --black-mid: #1C1C1C;   /* near-black surfaces (footer band, nav underline) */
+  --black-card: #FFFFFF;  /* card surface — white now */
+  --black-border: #E2E2E2;/* hairline border on white */
+  --white: #FFFFFF;       /* page background */
+  --white-dim: #5C5C5C;   /* muted/secondary text on white */
   --gold: #C9A84C;
 }
 
@@ -19,8 +24,8 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--black);
-  color: var(--white);
+  background: var(--white);
+  color: var(--black);
   overflow-x: hidden;
   font-family: var(--font-barlow), sans-serif;
 }
@@ -31,6 +36,8 @@ body {
 }
 
 /* ===================== NOISE OVERLAY ===================== */
+/* Kept, but dialed way down — a light film-grain texture over white
+   reads as "gritty photography," heavy grain reads as dirty print. */
 body::after {
   content: '';
   position: fixed;
@@ -38,12 +45,12 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 9990;
-  opacity: 0.35;
+  opacity: 0.12;
 }
 
 /* ===================== SCROLLBAR ===================== */
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-track { background: var(--black-border); }
 ::-webkit-scrollbar-thumb { background: var(--red); }
 
 /* ===================== ANIMATIONS ===================== */
@@ -149,9 +156,9 @@ body::after {
   font-family: var(--font-bebas), cursive;
   font-size: 44px;
   line-height: 1;
-  color: white;
+  color: var(--black);
   display: block;
-  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  text-shadow: none;
   min-width: 54px;
   text-align: center;
 }
@@ -183,6 +190,7 @@ body::after {
   grid-template-columns: 1fr;
   gap: 2px;
   padding: 20px 24px 56px;
+  background: var(--black-border);
 }
 @media (min-width: 600px) {
   .event-info-grid { grid-template-columns: repeat(3, 1fr); padding: 20px 40px 80px; }
@@ -224,6 +232,7 @@ body::after {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2px;
+  background: var(--black-border);
 }
 @media (min-width: 900px) { .divisions-grid { grid-template-columns: repeat(4, 1fr); } }
 
@@ -238,6 +247,7 @@ body::after {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2px;
+  background: var(--black-border);
 }
 @media (min-width: 768px) { .rules-grid { grid-template-columns: 1fr 1fr; } }
 
@@ -248,6 +258,7 @@ body::after {
 .register-cta-outer {
   margin: 0 24px 56px;
   padding: 36px 28px;
+  background: var(--black);
 }
 @media (min-width: 640px)  { .register-cta-outer { margin: 0 40px 80px; padding: 50px 50px; } }
 @media (min-width: 1024px) { .register-cta-outer { margin: 0 60px 80px; padding: 60px 80px; } }
@@ -265,7 +276,7 @@ body::after {
 .register-ghost-text { display: none; }
 @media (min-width: 900px) { .register-ghost-text { display: block; } }
 
-.register-headline { font-size: 36px; }
+.register-headline { font-size: 36px; color: var(--white); }
 @media (min-width: 480px) { .register-headline { font-size: 48px; } }
 @media (min-width: 768px)  { .register-headline { font-size: 56px; } }
 
@@ -284,7 +295,11 @@ body::after {
 @media (min-width: 768px) { .contact-grid { grid-template-columns: 1fr 1fr; gap: 40px; } }
 
 /* ===================== FOOTER ===================== */
-.footer-wrap { padding: 40px 24px 24px; }
+.footer-wrap {
+  padding: 40px 24px 24px;
+  background: var(--black);
+  color: var(--white);
+}
 @media (min-width: 640px)  { .footer-wrap { padding: 48px 40px 28px; } }
 @media (min-width: 1024px) { .footer-wrap { padding: 50px 60px 30px; } }
 
@@ -306,7 +321,7 @@ body::after {
   flex-direction: column;
   gap: 8px;
   padding-top: 20px;
-  border-top: 1px solid var(--black-border);
+  border-top: 1px solid rgba(255,255,255,0.15);
 }
 @media (min-width: 640px) {
   .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; padding-top: 24px; }

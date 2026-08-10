@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/divisions/gi' },
   openGraph: {
     title: 'Gi Competition Division — Midwest BJJ Nationals 2026',
-    description: 'Complete Gi rules for all belt levels and age groups. April 18, 2026 — Louisville, KY.',
+    description: 'Complete Gi rules for all belt levels and age groups. October 24, 2026 — Louisville, KY.',
     url: 'https://mwbjjn.com/divisions/gi',
   },
 }

@@ -1,20 +1,28 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
+// Drop new photos in /public and add them here — order doesn't matter,
+// the stack auto-rotates through whatever's in this array.
+// `position` is optional — it controls what part of the photo stays in
+// frame when it's cropped to fit the tall card (CSS object-position).
+// Default is 'center center'. Use 'center top' for a photo where the
+// important part is near the top (e.g. a face close to the top edge).
 const stackedImages = [
   {
-    src: '/Dalton-Crew-GracieBJJ.jpg',
-    alt: 'Dalton BJJ crew at Gracie BJJ – Midwest BJJ Nationals competitors',
+    src: '/mwbjj-kid-figther.jpg',
+    alt: 'Describe the photo for accessibility / SEO',
+    position: 'center center',
   },
   {
-    src: '/Scott-Smith-Director-MW.jpg',
-    alt: 'Scott Smith, director of Midwest BJJ Nationals, 10th anniversary event',
+    src: '/hero-director-portrait.png',
+    alt: 'Tournament director, black and white portrait – Midwest BJJ Nationals 10th Anniversary',
+    position: 'center center',
   },
   {
-    src: '/Max-Fighting-BJJ.jpg',
-    alt: 'Max competing in BJJ match – Midwest BJJ Nationals Louisville KY',
+    src: '/hero-fighter-dust.png',
+    alt: 'BJJ competitor kneeling in a dramatic dust portrait – Midwest BJJ Nationals',
+    position: 'center top',
   },
 ]
 
@@ -24,63 +32,49 @@ function getCardStyle(index: number, activeIndex: number, total: number) {
   if (offset === 0) {
     // Front / active
     return {
-      transform: 'translateX(0px) translateY(0px) rotate(0deg) scale(1)',
+      transform: 'translateX(0px) translateY(0px) scale(1)',
       zIndex: 3,
       opacity: 1,
       filter: 'brightness(1)',
     }
   } else if (offset === 1) {
-    // Right back
     return {
-      transform: 'translateX(70px) translateY(24px) rotate(6deg) scale(0.88)',
+      transform: 'translateX(40px) translateY(16px) scale(0.94)',
       zIndex: 2,
-      opacity: 0.7,
-      filter: 'brightness(0.6)',
+      opacity: 0,
+      filter: 'brightness(0.85)',
     }
   } else {
-    // Left back
     return {
-      transform: 'translateX(-70px) translateY(24px) rotate(-6deg) scale(0.88)',
+      transform: 'translateX(-40px) translateY(16px) scale(0.94)',
       zIndex: 1,
-      opacity: 0.7,
-      filter: 'brightness(0.6)',
+      opacity: 0,
+      filter: 'brightness(0.85)',
     }
   }
 }
 
 export default function Hero() {
-  const stripesRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
 
-  // Animated background stripes
-  useEffect(() => {
-    const container = stripesRef.current
-    if (!container) return
-    for (let i = 0; i < 8; i++) {
-      const stripe = document.createElement('div')
-      stripe.style.cssText = `
-        position:absolute;width:3px;
-        left:${Math.random() * 100}%;
-        height:${60 + Math.random() * 40}%;
-        background:linear-gradient(to bottom,transparent,rgba(204,0,0,0.3),transparent);
-        opacity:0;
-        animation:stripeMove ${3 + Math.random() * 3}s ${Math.random() * 4}s infinite linear;
-      `
-      container.appendChild(stripe)
-    }
-  }, [])
-
-  // Auto-rotate every 3 seconds
+  // Auto-rotate every 4 seconds — the fade handles the transition now,
+  // there's nothing to "stack" behind the active photo anymore.
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex(prev => (prev + 1) % stackedImages.length)
-    }, 3000)
+    }, 4000)
     return () => clearInterval(timer)
   }, [])
 
   const CardStack = ({ size }: { size: 'desktop' | 'mobile' }) => {
-    const w = size === 'desktop' ? '400px' : '260px'
-    const h = size === 'desktop' ? '520px' : '300px'
+    const w = size === 'desktop' ? '620px' : '340px'
+    const h = size === 'desktop' ? '760px' : '420px'
+    // Feathers every edge of the *actual rendered photo* into black.
+    // Applied directly to the <img>, so it hugs the photo's real
+    // boundary no matter its aspect ratio — no mismatched box.
+    const edgeMask =
+      'linear-gradient(to right, transparent 0%, #000 24%, #000 76%, transparent 100%),' +
+      'linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%)'
     return (
       <div style={{ position: 'relative', width: w, height: h }}>
         {stackedImages.map((img, idx) => {
@@ -93,41 +87,32 @@ export default function Hero() {
                 position: 'absolute',
                 inset: 0,
                 cursor: 'pointer',
-                borderRadius: '8px',
-                overflow: 'hidden',
-                border: cs.zIndex === 3 ? '2px solid rgba(204,0,0,0.5)' : '2px solid rgba(204,0,0,0.15)',
-                boxShadow: cs.zIndex === 3
-                  ? '0 28px 70px rgba(0,0,0,0.8), 0 0 0 2px rgba(204,0,0,0.3)'
-                  : '0 14px 40px rgba(0,0,0,0.6)',
-                transition:
-                  'transform 0.6s cubic-bezier(0.34,1.56,0.64,1), opacity 0.5s ease, filter 0.5s ease, box-shadow 0.4s ease',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'opacity 0.9s ease, transform 0.9s ease, filter 0.9s ease',
                 ...cs,
               }}
             >
-              <Image
+              {/* Plain <img>, sized by its own aspect ratio (maxHeight/
+                  maxWidth) instead of being forced to fill a box that
+                  doesn't match its shape — that mismatch was what left
+                  a hard-edged rectangle around it. */}
+              <img
                 src={img.src}
                 alt={img.alt}
-                fill
-                sizes={size === 'desktop' ? '400px' : '260px'}
-                style={{ objectFit: 'cover', objectPosition: 'center top' }}
-                priority={idx === 0}
-              />
-              <div
                 style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: 'linear-gradient(to bottom,transparent 55%,rgba(10,10,10,0.6) 100%)',
-                }}
-              />
-              <div
-                style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '3px',
-                  background: 'linear-gradient(90deg,#CC0000,transparent)',
-                  opacity: cs.zIndex === 3 ? 1 : 0.3,
+                  display: 'block',
+                  maxHeight: '100%',
+                  maxWidth: '100%',
+                  width: 'auto',
+                  height: 'auto',
+                  objectPosition: img.position || 'center center',
+                  WebkitMaskImage: edgeMask,
+                  maskImage: edgeMask,
+                  WebkitMaskComposite: 'source-in',
+                  maskComposite: 'intersect',
+                  filter: 'brightness(0.94)',
                 }}
               />
             </div>
@@ -138,7 +123,7 @@ export default function Hero() {
   }
 
   const DotIndicators = () => (
-    <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginTop: '12px' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginTop: '16px' }}>
       {stackedImages.map((_, idx) => (
         <button
           key={idx}
@@ -148,7 +133,7 @@ export default function Hero() {
             width: idx === activeIndex ? '22px' : '6px',
             height: '6px',
             borderRadius: '3px',
-            background: idx === activeIndex ? '#CC0000' : 'rgba(255,255,255,0.3)',
+            background: idx === activeIndex ? '#C8102E' : 'rgba(255,255,255,0.25)',
             border: 'none',
             cursor: 'pointer',
             padding: 0,
@@ -164,83 +149,67 @@ export default function Hero() {
       style={{
         position: 'relative',
         height: '100vh',
-        minHeight: '600px',
+        minHeight: '640px',
         overflow: 'hidden',
         display: 'flex',
         alignItems: 'center',
+        background: '#000000',
       }}
     >
-      {/* Background */}
+      {/* Strict black base — no color tint, just the page background. */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
-          background: `
-            linear-gradient(135deg,rgba(204,0,0,0.15) 0%,transparent 50%),
-            linear-gradient(to bottom,transparent 50%,rgba(10,10,10,0.9) 100%),
-            radial-gradient(ellipse at 60% 40%,rgba(204,0,0,0.08) 0%,transparent 70%)
-          `,
-          backgroundColor: '#0A0A0A',
+          background: '#000000',
         }}
       />
-
-      {/* Stripes */}
-      <div ref={stripesRef} style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }} />
 
       {/* ── Desktop panel ── */}
       <div
         className="hero-mat-panel"
         style={{
           position: 'absolute',
-          right: '-2%',
+          right: '-4%',
           top: '50%',
           transform: 'translateY(-50%)',
-          width: '48%',
-          height: '80%',
+          width: '54%',
+          height: '92%',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
         }}
       >
-        {/* subtle grid */}
+        {/* subtle grid, barely visible on black — just texture */}
         <div
           className="animate-grid-pulse"
           style={{
             position: 'absolute',
             inset: 0,
             backgroundImage: `
-              linear-gradient(rgba(204,0,0,0.06) 1px,transparent 1px),
-              linear-gradient(90deg,rgba(204,0,0,0.06) 1px,transparent 1px)
+              linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),
+              linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)
             `,
             backgroundSize: '60px 60px',
             opacity: 0.5,
-          }}
-        />
-        {/* glow */}
-        <div
-          style={{
-            position: 'absolute',
-            width: '340px',
-            height: '340px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle,rgba(204,0,0,0.18) 0%,transparent 70%)',
-            pointerEvents: 'none',
           }}
         />
 
         <CardStack size="desktop" />
         <DotIndicators />
 
-        {/* 10-year badge */}
+        {/* 11-year badge */}
+        {/* 11-year badge */}
         <div
           style={{
             position: 'absolute',
-            bottom: '8%',
-            right: '10%',
-            background: 'rgba(10,10,10,0.85)',
-            border: '1px solid rgba(204,0,0,0.45)',
-            backdropFilter: 'blur(8px)',
+            bottom: '6%',
+            right: '6%',
+            maxWidth: '90%',
+            background: 'rgba(10,10,10,0.7)',
+            border: '1px solid rgba(200,16,46,0.45)',
+            backdropFilter: 'blur(6px)',
             padding: '10px 18px',
             clipPath: 'polygon(0 0,calc(100% - 8px) 0,100% 100%,8px 100%)',
             display: 'flex',
@@ -248,17 +217,17 @@ export default function Hero() {
             gap: '10px',
           }}
         >
-          <span style={{ fontFamily: 'var(--font-bebas)', fontSize: '38px', color: '#CC0000', lineHeight: 1 }}>
-            10
+          <span
+            style={{
+              fontFamily: 'var(--font-bebas)',
+              fontSize: 'clamp(18px, 2.4vw, 28px)',
+              color: '#C8102E',
+              lineHeight: 1,
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Celebrating 11 Years of MWBJJN
           </span>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <span style={{ fontFamily: 'var(--font-barlow-condensed)', fontSize: '9px', letterSpacing: '3px', color: '#AAAAAA', textTransform: 'uppercase' }}>
-              Year
-            </span>
-            <span style={{ fontFamily: 'var(--font-barlow-condensed)', fontSize: '9px', letterSpacing: '3px', color: '#CC0000', textTransform: 'uppercase', fontWeight: 700 }}>
-              Anniversary
-            </span>
-          </div>
         </div>
       </div>
 
@@ -269,19 +238,19 @@ export default function Hero() {
           className="animate-fade-up delay-200"
           style={{
             display: 'inline-flex', alignItems: 'center', gap: '10px',
-            background: 'rgba(204,0,0,0.15)', border: '1px solid rgba(204,0,0,0.4)',
+            background: 'rgba(200,16,46,0.12)', border: '1px solid rgba(200,16,46,0.4)',
             padding: '7px 16px', marginBottom: '22px',
             fontFamily: 'var(--font-barlow-condensed)', fontWeight: 700,
             fontSize: '11px', letterSpacing: '4px', textTransform: 'uppercase',
-            color: '#CC0000',
+            color: '#E8112F',
             clipPath: 'polygon(0 0,calc(100% - 8px) 0,100% 100%,8px 100%)',
           }}
         >
           <span
             className="animate-blink"
-            style={{ width: '6px', height: '6px', background: '#CC0000', borderRadius: '50%', display: 'inline-block', flexShrink: 0 }}
+            style={{ width: '6px', height: '6px', background: '#E8112F', borderRadius: '50%', display: 'inline-block', flexShrink: 0 }}
           />
-          ⚡ 10th Year Anniversary
+          11th Year
         </div>
 
         {/* Title */}
@@ -293,11 +262,11 @@ export default function Hero() {
             lineHeight: 0.9, letterSpacing: '4px', marginBottom: '18px',
           }}
         >
-          <span style={{ color: '#CC0000', display: 'block' }}>Midwest</span>
-          <span style={{ color: '#F5F5F5', display: 'block' }}>BJJ</span>
+          <span style={{ color: '#E8112F', display: 'block' }}>Midwest</span>
+          <span style={{ color: '#FFFFFF', display: 'block' }}>BJJ</span>
           <span
             style={{
-              WebkitTextStroke: '2px rgba(255,255,255,0.15)',
+              WebkitTextStroke: '2px rgba(255,255,255,0.18)',
               color: 'transparent', display: 'block',
               fontSize: 'clamp(40px,8vw,80px)',
             }}
@@ -315,26 +284,26 @@ export default function Hero() {
             marginBottom: '32px', textTransform: 'uppercase',
           }}
         >
-          <strong style={{ color: '#C9A84C', fontWeight: 700 }}>April 18, 2026</strong>
-          {' '}· South Oldham HS, Louisville KY
+          <strong style={{ color: '#C9A84C', fontWeight: 700 }}>October 24, 2026</strong>
+          {' '}· Marion C. Moore School, Louisville KY
         </p>
 
         {/* Buttons */}
         <div className="hero-actions animate-fade-up delay-800">
           <a
-            href="https://smoothcomp.com/en/event/29767"
+            href="https://smoothcomp.com/en/event/34213"
             target="_blank" rel="noopener noreferrer"
             className="hero-btn"
             style={{
-              background: '#CC0000', color: 'white', textDecoration: 'none',
+              background: '#C8102E', color: '#FFFFFF', textDecoration: 'none',
               fontFamily: 'var(--font-barlow-condensed)', fontWeight: 800,
               fontSize: '14px', letterSpacing: '3px', textTransform: 'uppercase',
               padding: '15px 36px',
               clipPath: 'polygon(0 0,calc(100% - 12px) 0,100% 100%,12px 100%)',
               transition: 'background 0.2s',
             }}
-            onMouseEnter={e => (e.currentTarget.style.background = '#FF1A1A')}
-            onMouseLeave={e => (e.currentTarget.style.background = '#CC0000')}
+            onMouseEnter={e => (e.currentTarget.style.background = '#E8112F')}
+            onMouseLeave={e => (e.currentTarget.style.background = '#C8102E')}
           >
             Register Now
           </a>
@@ -343,33 +312,33 @@ export default function Hero() {
             onClick={e => { e.preventDefault(); document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' }) }}
             className="hero-btn"
             style={{
-              background: 'transparent', color: '#F5F5F5', textDecoration: 'none',
+              background: 'transparent', color: '#FFFFFF', textDecoration: 'none',
               fontFamily: 'var(--font-barlow-condensed)', fontWeight: 700,
               fontSize: '14px', letterSpacing: '3px', textTransform: 'uppercase',
-              padding: '13px 32px', border: '1px solid rgba(255,255,255,0.25)',
+              padding: '13px 32px', border: '1px solid rgba(255,255,255,0.3)',
               clipPath: 'polygon(0 0,calc(100% - 12px) 0,100% 100%,12px 100%)',
-              transition: 'border-color 0.2s,color 0.2s',
+              transition: 'border-color 0.2s,color 0.2s,background 0.2s',
             }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = '#CC0000'; e.currentTarget.style.color = '#CC0000' }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)'; e.currentTarget.style.color = '#F5F5F5' }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = '#E8112F'; e.currentTarget.style.color = '#E8112F' }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'; e.currentTarget.style.color = '#FFFFFF' }}
           >
             Learn More
           </a>
         </div>
 
-          {/* QR Code */}
-          <div style={{ display:'flex', flexDirection:'column', alignItems:'center', marginTop:'24px', width:'fit-content' }} >
-            <img
-              src="/qrcode.png"
-              alt="Scan to visit mwbjjn.com"
-              width={100}
-              height={100}
-              style={{ display:'block', borderRadius:'4px' }}
-            />
-            <p style={{ fontSize:'11px', color:'#555555', letterSpacing:'2px', marginTop:'6px', textTransform:'uppercase', fontFamily:'var(--font-barlow-condensed)' }}>
-              Scan to register
-            </p>
-          </div>
+        {/* QR Code — needs a white card since it's a dark background now */}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '24px', width: 'fit-content' }}>
+          <img
+            src="/qrcode.png"
+            alt="Scan to visit mwbjjn.com"
+            width={100}
+            height={100}
+            style={{ display: 'block', borderRadius: '4px', background: '#FFFFFF', padding: '6px' }}
+          />
+          <p style={{ fontSize: '11px', color: '#777777', letterSpacing: '2px', marginTop: '6px', textTransform: 'uppercase', fontFamily: 'var(--font-barlow-condensed)' }}>
+            Scan to register
+          </p>
+        </div>
 
         {/* ── Mobile carousel ── */}
         <div
@@ -386,13 +355,13 @@ export default function Hero() {
         style={{
           position: 'absolute', bottom: '32px', left: '50%', transform: 'translateX(-50%)',
           display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px',
-          opacity: 0.4, zIndex: 10,
+          opacity: 0.5, zIndex: 10,
         }}
       >
         <span style={{ fontFamily: 'var(--font-barlow-condensed)', fontSize: '10px', letterSpacing: '4px', color: '#AAAAAA', textTransform: 'uppercase' }}>
           Scroll
         </span>
-        <div style={{ width: '1px', height: '36px', background: 'linear-gradient(to bottom,#CC0000,transparent)' }} />
+        <div style={{ width: '1px', height: '36px', background: 'linear-gradient(to bottom,#C8102E,transparent)' }} />
       </div>
 
       {/* Responsive */}

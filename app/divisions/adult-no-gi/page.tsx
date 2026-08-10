@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/divisions/adult-no-gi' },
   openGraph: {
     title: 'Adult No-Gi Division — Midwest BJJ Nationals 2026',
-    description: 'Complete No-Gi rules for adult competitors at all belt levels. April 18, 2026 — Louisville, KY.',
+    description: 'Complete No-Gi rules for adult competitors at all belt levels. October 24, 2026 — Louisville, KY.',
     url: 'https://mwbjjn.com/divisions/adult-no-gi',
   },
 }

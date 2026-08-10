@@ -75,7 +75,8 @@ export default function Rules() {
       <SectionDivider label="Competition Rules" />
       <div id="rules">
         <SectionTitle>
-          Know the <span style={{ color:'#CC0000' }}>Rules</span>
+          <span style={{ color:'#0A0A0A' }}>Know the</span>{' '}
+          <span style={{ color:'#CC0000' }}>Rules</span>
         </SectionTitle>
       </div>
       <div className="rules-wrap reveal">

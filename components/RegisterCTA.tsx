@@ -41,12 +41,12 @@ export default function RegisterCTA() {
             Ready to Compete?<br/>Sign Up Now.
           </div>
           <div style={{ fontFamily:'var(--font-barlow)', fontSize:'15px', color:'rgba(255,255,255,0.85)' }}>
-            Secure your spot for April 18, 2026 via SmoothComp
+            Secure your spot for October 24, 2026 via SmoothComp
           </div>
         </div>
 
         <a
-          href="https://smoothcomp.com/en/event/29767"
+          href="https://smoothcomp.com/en/event/34213"
           target="_blank" rel="noopener noreferrer"
           style={{
             display:'inline-block', background:'white', color:'#CC0000', textDecoration:'none',
