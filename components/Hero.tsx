@@ -20,7 +20,7 @@ const stackedImages = [
     position: 'center center',
   },
   {
-    src: '/hero-fighter-dust.png',
+    src: '/hero-fighter.png',
     alt: 'BJJ competitor kneeling in a dramatic dust portrait – Midwest BJJ Nationals',
     position: 'center top',
   },
