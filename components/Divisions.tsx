@@ -34,9 +34,11 @@ export default function Divisions() {
   return (
     <>
       <SectionDivider label="Compete In Your Division" />
+
       <div id="divisions">
         <SectionTitle>
-          Choose Your <span style={{ color:'#CC0000' }}>Division</span>
+          <span style={{ color:'#0A0A0A' }}>Choose Your</span>{' '}
+          <span style={{ color:'#CC0000' }}>Division</span>
         </SectionTitle>
       </div>
 

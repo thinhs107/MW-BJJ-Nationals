@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/divisions/kids-no-gi' },
   openGraph: {
     title: 'Kids No-Gi Division — Midwest BJJ Nationals 2026',
-    description: 'Complete rules, age groups, and weight classes for kids competing No-Gi at the Midwest BJJ Nationals on April 18, 2026.',
+    description: 'Complete rules, age groups, and weight classes for kids competing No-Gi at the Midwest BJJ Nationals on October 24, 2026.',
     url: 'https://mwbjjn.com/divisions/kids-no-gi',
   },
 }

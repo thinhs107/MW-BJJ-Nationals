@@ -23,9 +23,9 @@ const barlowCondensed = Barlow_Condensed({
 
 const SITE_URL = 'https://mwbjjn.com'
 const SITE_NAME = 'Midwest BJJ Nationals'
-const TITLE = 'Midwest BJJ Nationals 2026 | 10th Year Anniversary — April 18, Louisville KY'
+const TITLE = 'Midwest BJJ Nationals 2026 | 11th Year — April 18, Louisville KY'
 const DESCRIPTION =
-  'Register now for the Midwest BJJ Nationals Spring 2026 — a Round Robin Gi & No-Gi Brazilian Jiu Jitsu tournament on April 18, 2026 at South Oldham High School, Louisville, Kentucky. Celebrating 10 years of excellence. All ages and skill levels welcome.'
+  'Register now for the Midwest BJJ Nationals Spring 2026 — a Round Robin Gi & No-Gi Brazilian Jiu Jitsu tournament on October 24, 2026 at South Oldham High School, Louisville, Kentucky. Celebrating 10 years of excellence. All ages and skill levels welcome.'
 
 export const metadata: Metadata = {
   // ── Core ──────────────────────────────────────────────────────────

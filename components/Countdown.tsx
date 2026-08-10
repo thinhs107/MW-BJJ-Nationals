@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 interface TimeLeft { days: number; hours: number; minutes: number; seconds: number }
 
 function getTimeLeft(): TimeLeft {
-  const diff = Math.max(0, new Date('2026-04-18T09:00:00').getTime() - Date.now())
+  const diff = Math.max(0, new Date('2026-10-24T09:00:00').getTime() - Date.now())
   return {
     days:    Math.floor(diff / 86400000),
     hours:   Math.floor((diff % 86400000) / 3600000),
@@ -85,7 +85,7 @@ export default function Countdown() {
             fontFamily:'var(--font-bebas)', fontSize:'20px',
             letterSpacing:'4px', color:'white', display:'block',
           }}>
-            April 18, 2026
+            October 24, 2026
           </span>
           <span style={{
             fontFamily:'var(--font-barlow-condensed)', fontSize:'11px',

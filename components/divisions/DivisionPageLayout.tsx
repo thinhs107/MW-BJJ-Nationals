@@ -43,49 +43,49 @@ export default function DivisionPageLayout({
   const [openSection, setOpenSection] = useState<number | null>(null)
 
   return (
-    <div style={{ background: '#0A0A0A', minHeight: '100vh', color: '#F5F5F5' }}>
+    <div style={{ background: '#FFFFFF', minHeight: '100vh', color: '#0A0A0A' }}>
 
       {/* Back nav */}
       <div style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
         height: '60px', display: 'flex', alignItems: 'center',
         padding: '0 24px', gap: '16px',
-        background: 'rgba(10,10,10,0.95)',
-        borderBottom: '1px solid #222',
+        background: 'rgba(255,255,255,0.95)',
+        borderBottom: '1px solid #E2E2E2',
         backdropFilter: 'blur(10px)',
       }}>
         <Link href="/" style={{
           display: 'inline-flex', alignItems: 'center', gap: '8px',
-          color: '#AAAAAA', textDecoration: 'none',
+          color: '#5C5C5C', textDecoration: 'none',
           fontFamily: 'var(--font-barlow-condensed)', fontWeight: 700,
           fontSize: '12px', letterSpacing: '3px', textTransform: 'uppercase',
           transition: 'color 0.2s',
         }}
-          onMouseEnter={e => (e.currentTarget.style.color = '#F5F5F5')}
-          onMouseLeave={e => (e.currentTarget.style.color = '#AAAAAA')}
+          onMouseEnter={e => (e.currentTarget.style.color = '#0A0A0A')}
+          onMouseLeave={e => (e.currentTarget.style.color = '#5C5C5C')}
         >
           ← Back to Home
         </Link>
-        <span style={{ color: '#333' }}>|</span>
+        <span style={{ color: '#CCCCCC' }}>|</span>
         <span style={{
           fontFamily: 'var(--font-bebas)', fontSize: '16px',
-          letterSpacing: '3px', color: '#CC0000',
+          letterSpacing: '3px', color: '#C8102E',
         }}>MW BJJ NATIONALS</span>
 
         <a
-          href="https://smoothcomp.com/en/event/29767"
+          href="https://smoothcomp.com/en/event/34213"
           target="_blank" rel="noopener noreferrer"
           style={{
             marginLeft: 'auto',
-            background: '#CC0000', color: 'white', textDecoration: 'none',
+            background: '#C8102E', color: 'white', textDecoration: 'none',
             fontFamily: 'var(--font-barlow-condensed)', fontWeight: 800,
             fontSize: '11px', letterSpacing: '3px', textTransform: 'uppercase',
             padding: '8px 20px',
             clipPath: 'polygon(0 0,calc(100% - 8px) 0,100% 100%,8px 100%)',
             transition: 'background 0.2s',
           }}
-          onMouseEnter={e => (e.currentTarget.style.background = '#FF1A1A')}
-          onMouseLeave={e => (e.currentTarget.style.background = '#CC0000')}
+          onMouseEnter={e => (e.currentTarget.style.background = '#E8112F')}
+          onMouseLeave={e => (e.currentTarget.style.background = '#C8102E')}
         >
           Register Now
         </a>
@@ -102,23 +102,23 @@ export default function DivisionPageLayout({
         <div style={{
           position: 'absolute', inset: 0,
           backgroundImage: `
-            linear-gradient(rgba(204,0,0,0.05) 1px,transparent 1px),
-            linear-gradient(90deg,rgba(204,0,0,0.05) 1px,transparent 1px)
+            linear-gradient(rgba(200,16,46,0.08) 1px,transparent 1px),
+            linear-gradient(90deg,rgba(200,16,46,0.08) 1px,transparent 1px)
           `,
           backgroundSize: '50px 50px',
         }} />
         <div style={{
           position: 'absolute', left: 0, top: 0, bottom: 0, width: '4px',
-          background: '#CC0000',
+          background: '#C8102E',
         }} />
 
         <div style={{ position: 'relative', zIndex: 1, padding: '48px 24px 40px' }}>
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
-            background: 'rgba(204,0,0,0.12)', border: '1px solid rgba(204,0,0,0.35)',
+            background: 'rgba(200,16,46,0.14)', border: '1px solid rgba(200,16,46,0.4)',
             padding: '6px 16px', marginBottom: '20px',
             fontFamily: 'var(--font-barlow-condensed)', fontWeight: 700,
-            fontSize: '11px', letterSpacing: '4px', color: '#CC0000', textTransform: 'uppercase',
+            fontSize: '11px', letterSpacing: '4px', color: '#E8112F', textTransform: 'uppercase',
             clipPath: 'polygon(0 0,calc(100% - 8px) 0,100% 100%,8px 100%)',
           }}>
             <span style={{ fontSize: '16px' }}>{icon}</span>
@@ -131,8 +131,8 @@ export default function DivisionPageLayout({
             letterSpacing: '4px', lineHeight: 0.9,
             marginBottom: '16px',
           }}>
-            <span style={{ color: '#F5F5F5', display: 'block' }}>{title}</span>
-            <span style={{ color: '#CC0000', display: 'block', fontSize: '0.55em' }}>{subtitle}</span>
+            <span style={{ color: '#FFFFFF', display: 'block' }}>{title}</span>
+            <span style={{ color: '#E8112F', display: 'block', fontSize: '0.55em' }}>{subtitle}</span>
           </h1>
 
           <p style={{
@@ -147,18 +147,18 @@ export default function DivisionPageLayout({
             flexWrap: 'wrap',
           }}>
             {[
-              { label: 'Date',   value: 'April 18, 2026' },
+              { label: 'Date',   value: 'October 24, 2026' },
               { label: 'Format', value: 'Round Robin' },
               { label: 'Venue',  value: 'South Oldham HS, Louisville KY' },
             ].map(m => (
-              <div key={m.label} style={{ borderLeft: '2px solid #CC0000', paddingLeft: '12px' }}>
+              <div key={m.label} style={{ borderLeft: '2px solid #C8102E', paddingLeft: '12px' }}>
                 <span style={{
                   fontFamily: 'var(--font-barlow-condensed)', fontSize: '10px',
-                  letterSpacing: '3px', color: '#CC0000', textTransform: 'uppercase', display: 'block',
+                  letterSpacing: '3px', color: '#E8112F', textTransform: 'uppercase', display: 'block',
                 }}>{m.label}</span>
                 <span style={{
                   fontFamily: 'var(--font-barlow-condensed)', fontSize: '14px',
-                  fontWeight: 700, color: '#F5F5F5',
+                  fontWeight: 700, color: '#FFFFFF',
                 }}>{m.value}</span>
               </div>
             ))}
@@ -173,7 +173,7 @@ export default function DivisionPageLayout({
         <div style={{ marginBottom: '48px' }}>
           <div style={{
             fontFamily: 'var(--font-barlow-condensed)', fontWeight: 700,
-            fontSize: '11px', letterSpacing: '5px', color: '#CC0000',
+            fontSize: '11px', letterSpacing: '5px', color: '#C8102E',
             textTransform: 'uppercase', marginBottom: '24px',
           }}>
             Division Rules
@@ -183,9 +183,9 @@ export default function DivisionPageLayout({
             <div
               key={si}
               style={{
-                background: '#161616',
+                background: '#FFFFFF',
                 border: '1px solid',
-                borderColor: openSection === si ? 'rgba(204,0,0,0.4)' : '#222',
+                borderColor: openSection === si ? 'rgba(200,16,46,0.4)' : '#E2E2E2',
                 marginBottom: '2px',
                 transition: 'border-color 0.2s',
               }}
@@ -200,13 +200,13 @@ export default function DivisionPageLayout({
               >
                 <span style={{
                   fontFamily: 'var(--font-bebas)', fontSize: '22px',
-                  letterSpacing: '2px', color: '#F5F5F5',
+                  letterSpacing: '2px', color: '#0A0A0A',
                 }}>
                   {section.title}
                 </span>
                 <span style={{
                   fontFamily: 'var(--font-bebas)', fontSize: '20px',
-                  color: '#CC0000', transition: 'transform 0.2s',
+                  color: '#C8102E', transition: 'transform 0.2s',
                   transform: openSection === si ? 'rotate(45deg)' : 'none',
                   display: 'block', lineHeight: 1,
                 }}>
@@ -220,13 +220,13 @@ export default function DivisionPageLayout({
                     <tbody>
                       {section.rows.map((row, ri) => (
                         <tr key={ri} style={{
-                          borderTop: ri === 0 ? '1px solid #222' : '1px solid #1a1a1a',
+                          borderTop: ri === 0 ? '1px solid #E2E2E2' : '1px solid #EFEFEF',
                         }}>
                           <td style={{
                             padding: '12px 16px 12px 0',
                             fontFamily: 'var(--font-barlow-condensed)', fontWeight: 700,
                             fontSize: '12px', letterSpacing: '2px',
-                            color: '#CC0000', textTransform: 'uppercase',
+                            color: '#C8102E', textTransform: 'uppercase',
                             width: '38%', verticalAlign: 'top',
                           }}>
                             {row.label}
@@ -234,7 +234,7 @@ export default function DivisionPageLayout({
                           <td style={{
                             padding: '12px 0',
                             fontFamily: 'var(--font-barlow)', fontSize: '14px',
-                            color: '#AAAAAA', lineHeight: 1.5,
+                            color: '#5C5C5C', lineHeight: 1.5,
                           }}>
                             {row.value}
                           </td>
@@ -258,25 +258,25 @@ export default function DivisionPageLayout({
           <div style={{ marginBottom: '48px' }}>
             <div style={{
               fontFamily: 'var(--font-barlow-condensed)', fontWeight: 700,
-              fontSize: '11px', letterSpacing: '5px', color: '#CC0000',
+              fontSize: '11px', letterSpacing: '5px', color: '#C8102E',
               textTransform: 'uppercase', marginBottom: '24px',
             }}>
               Weight Classes
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '2px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '2px', background: '#E2E2E2' }}>
               {weightClasses.map((wc, i) => (
-                <div key={i} style={{ background: '#161616', padding: '20px 24px' }}>
+                <div key={i} style={{ background: '#FFFFFF', padding: '20px 24px' }}>
                   <div style={{
                     fontFamily: 'var(--font-bebas)', fontSize: '18px',
-                    letterSpacing: '2px', color: '#CC0000', marginBottom: '10px',
+                    letterSpacing: '2px', color: '#C8102E', marginBottom: '10px',
                   }}>{wc.division}</div>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                     {wc.weights.map((w, wi) => (
                       <span key={wi} style={{
-                        background: 'rgba(204,0,0,0.08)', border: '1px solid rgba(204,0,0,0.2)',
+                        background: 'rgba(200,16,46,0.06)', border: '1px solid rgba(200,16,46,0.2)',
                         padding: '3px 10px',
                         fontFamily: 'var(--font-barlow-condensed)', fontSize: '12px',
-                        fontWeight: 700, color: '#AAAAAA',
+                        fontWeight: 700, color: '#5C5C5C',
                         clipPath: 'polygon(0 0,calc(100% - 5px) 0,100% 100%,5px 100%)',
                       }}>{w}</span>
                     ))}
@@ -290,15 +290,15 @@ export default function DivisionPageLayout({
         {/* Notes */}
         {notes && notes.length > 0 && (
           <div style={{
-            background: 'rgba(204,0,0,0.06)',
-            border: '1px solid rgba(204,0,0,0.2)',
+            background: 'rgba(200,16,46,0.05)',
+            border: '1px solid rgba(200,16,46,0.2)',
             padding: '24px',
             clipPath: 'polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px))',
             marginBottom: '48px',
           }}>
             <div style={{
               fontFamily: 'var(--font-barlow-condensed)', fontWeight: 700,
-              fontSize: '11px', letterSpacing: '4px', color: '#CC0000',
+              fontSize: '11px', letterSpacing: '4px', color: '#C8102E',
               textTransform: 'uppercase', marginBottom: '14px',
             }}>
               Important Notes
@@ -308,9 +308,9 @@ export default function DivisionPageLayout({
                 <li key={i} style={{
                   display: 'flex', gap: '10px',
                   fontFamily: 'var(--font-barlow)', fontSize: '14px',
-                  color: '#AAAAAA', lineHeight: 1.5,
+                  color: '#5C5C5C', lineHeight: 1.5,
                 }}>
-                  <span style={{ color: '#CC0000', flexShrink: 0, marginTop: '2px' }}>▸</span>
+                  <span style={{ color: '#C8102E', flexShrink: 0, marginTop: '2px' }}>▸</span>
                   {note}
                 </li>
               ))}
@@ -320,7 +320,7 @@ export default function DivisionPageLayout({
 
         {/* Register CTA */}
         <div style={{
-          background: 'linear-gradient(135deg,#8B0000 0%,#CC0000 100%)',
+          background: 'linear-gradient(135deg,#7A0C1E 0%,#C8102E 100%)',
           padding: '36px 32px',
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           flexWrap: 'wrap', gap: '20px',
@@ -347,11 +347,11 @@ export default function DivisionPageLayout({
             </div>
           </div>
           <a
-            href="https://smoothcomp.com/en/event/29767"
+            href="https://smoothcomp.com/en/event/34213"
             target="_blank" rel="noopener noreferrer"
             style={{
               position: 'relative', zIndex: 1,
-              background: 'white', color: '#CC0000', textDecoration: 'none',
+              background: 'white', color: '#C8102E', textDecoration: 'none',
               fontFamily: 'var(--font-barlow-condensed)', fontWeight: 800,
               fontSize: '13px', letterSpacing: '3px', textTransform: 'uppercase',
               padding: '14px 36px', flexShrink: 0,
@@ -373,15 +373,15 @@ export default function DivisionPageLayout({
           {prevDivision ? (
             <Link href={prevDivision.href} style={{
               display: 'inline-flex', alignItems: 'center', gap: '8px',
-              color: '#AAAAAA', textDecoration: 'none',
+              color: '#5C5C5C', textDecoration: 'none',
               fontFamily: 'var(--font-barlow-condensed)', fontWeight: 700,
               fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase',
-              padding: '12px 20px', border: '1px solid #333',
+              padding: '12px 20px', border: '1px solid #CCCCCC',
               clipPath: 'polygon(0 0,calc(100% - 8px) 0,100% 100%,8px 100%)',
               transition: 'color 0.2s, border-color 0.2s',
             }}
-              onMouseEnter={e => { e.currentTarget.style.color = '#CC0000'; e.currentTarget.style.borderColor = '#CC0000' }}
-              onMouseLeave={e => { e.currentTarget.style.color = '#AAAAAA'; e.currentTarget.style.borderColor = '#333' }}
+              onMouseEnter={e => { e.currentTarget.style.color = '#C8102E'; e.currentTarget.style.borderColor = '#C8102E' }}
+              onMouseLeave={e => { e.currentTarget.style.color = '#5C5C5C'; e.currentTarget.style.borderColor = '#CCCCCC' }}
             >
               ← {prevDivision.label}
             </Link>
@@ -390,15 +390,15 @@ export default function DivisionPageLayout({
           {nextDivision && (
             <Link href={nextDivision.href} style={{
               display: 'inline-flex', alignItems: 'center', gap: '8px',
-              color: '#AAAAAA', textDecoration: 'none',
+              color: '#5C5C5C', textDecoration: 'none',
               fontFamily: 'var(--font-barlow-condensed)', fontWeight: 700,
               fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase',
-              padding: '12px 20px', border: '1px solid #333',
+              padding: '12px 20px', border: '1px solid #CCCCCC',
               clipPath: 'polygon(0 0,calc(100% - 8px) 0,100% 100%,8px 100%)',
               transition: 'color 0.2s, border-color 0.2s',
             }}
-              onMouseEnter={e => { e.currentTarget.style.color = '#CC0000'; e.currentTarget.style.borderColor = '#CC0000' }}
-              onMouseLeave={e => { e.currentTarget.style.color = '#AAAAAA'; e.currentTarget.style.borderColor = '#333' }}
+              onMouseEnter={e => { e.currentTarget.style.color = '#C8102E'; e.currentTarget.style.borderColor = '#C8102E' }}
+              onMouseLeave={e => { e.currentTarget.style.color = '#5C5C5C'; e.currentTarget.style.borderColor = '#CCCCCC' }}
             >
               {nextDivision.label} →
             </Link>
@@ -408,14 +408,14 @@ export default function DivisionPageLayout({
 
       {/* Footer strip */}
       <div style={{
-        borderTop: '1px solid #222', padding: '20px 24px',
+        borderTop: '1px solid #E2E2E2', padding: '20px 24px',
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         flexWrap: 'wrap', gap: '10px',
         fontFamily: 'var(--font-barlow-condensed)', fontSize: '11px',
-        letterSpacing: '2px', textTransform: 'uppercase', color: '#444',
+        letterSpacing: '2px', textTransform: 'uppercase', color: '#777777',
       }}>
         <span>© 2026 Midwest BJJ Nationals</span>
-        <span style={{ color: '#CC0000' }}>April 18, 2026 · Louisville, KY</span>
+        <span style={{ color: '#C8102E' }}>October 24, 2026 · Louisville, KY</span>
       </div>
     </div>
   )

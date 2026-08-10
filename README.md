@@ -41,7 +41,7 @@ mwbjjn/
 │   ├── Navbar.tsx           # Fixed nav with mobile menu + scroll effect
 │   ├── Hero.tsx             # Full-screen hero with animated mat + stripes
 │   ├── Ticker.tsx           # Scrolling announcement ticker
-│   ├── Countdown.tsx        # Live countdown to April 18, 2026
+│   ├── Countdown.tsx        # Live countdown to October 24, 2026
 │   ├── EventInfo.tsx        # 3-card grid (date, location, format)
 │   ├── About.tsx            # Split panel with rotating BJJ emblem
 │   ├── Divisions.tsx        # 4-card divisions grid
@@ -78,7 +78,7 @@ mwbjjn/
 
 ## ✨ Features
 
-- **Live countdown clock** — real-time ticking to April 18, 2026
+- **Live countdown clock** — real-time ticking to October 24, 2026
 - **Animated hero** — rotating mat grid, moving light stripes
 - **Scrolling ticker** — tournament announcement marquee
 - **Custom cursor** — red dot with trailing ring
@@ -92,7 +92,7 @@ mwbjjn/
 ---
 
 ## 🔗 Key Links
-- Register: https://smoothcomp.com/en/event/29767
+- Register: https://smoothcomp.com/en/event/34213
 - Gi Rules: https://mwbjjn.com/rules/
 - No-Gi Rules: https://mwbjjn.com/no-gi-rules/
 

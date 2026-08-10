@@ -5,7 +5,7 @@ const cols = {
     { label:'About',     href:'#about',     internal:true },
     { label:'Divisions', href:'#divisions', internal:true },
     { label:'Rules',     href:'#rules',     internal:true },
-    { label:'Register',  href:'https://smoothcomp.com/en/event/29767' },
+    { label:'Register',  href:'https://smoothcomp.com/en/event/34213' },
   ],
   Rules: [
     { label:'Gi Rules',    href:'https://mwbjjn.com/rules/' },
@@ -102,7 +102,7 @@ export default function Footer() {
             fontFamily:'var(--font-barlow-condensed)', fontSize:'11px',
             letterSpacing:'2px', color:'#CC0000', textTransform:'uppercase',
           }}>
-            April 18, 2026 · Louisville, KY
+            October 24, 2026 · Louisville, KY
           </span>
         </div>
       </div>

@@ -84,7 +84,7 @@ export default function Navbar() {
           ))}
           <li>
             <a
-              href="https://smoothcomp.com/en/event/29767"
+              href="https://smoothcomp.com/en/event/34213"
               target="_blank" rel="noopener noreferrer"
               style={{
                 background:'#CC0000', color:'white', textDecoration:'none',
@@ -150,7 +150,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="https://smoothcomp.com/en/event/29767"
+            href="https://smoothcomp.com/en/event/34213"
             target="_blank" rel="noopener noreferrer"
             style={{
               background:'#CC0000', color:'white', textDecoration:'none',

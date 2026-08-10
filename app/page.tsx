@@ -33,7 +33,7 @@ const jsonLd = {
       image: 'https://mwbjjn.com/og-image.jpg',
       offers: {
         '@type': 'Offer',
-        url: 'https://smoothcomp.com/en/event/29767',
+        url: 'https://smoothcomp.com/en/event/34213',
         name: 'Tournament Registration',
         availability: 'https://schema.org/InStock',
         validFrom: '2025-08-26',
@@ -74,7 +74,7 @@ const jsonLd = {
         addressCountry: 'US',
       },
       sameAs: [
-        'https://smoothcomp.com/en/event/29767',
+        'https://smoothcomp.com/en/event/34213',
       ],
     },
 
@@ -113,10 +113,10 @@ const jsonLd = {
       mainEntity: [
         {
           '@type': 'Question',
-          name: 'When is the Midwest BJJ Nationals Spring 2026?',
+          name: 'When is the Midwest BJJ Nationals Fall 2026?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'The Midwest BJJ Nationals Spring 2026 is on April 18, 2026 at South Oldham High School in Louisville, Kentucky.',
+            text: 'The Midwest BJJ Nationals Fall 2026 is on October 24, 2026 at Marion C. Moore High School in Louisville, Kentucky.',
           },
         },
         {
@@ -169,7 +169,7 @@ export default function Home() {
       <ScrollReveal />
       <Navbar />
       <main>
-        {/* <Hero />
+        <Hero />
         <Ticker />
         <Countdown />
         <EventInfo />
@@ -177,8 +177,8 @@ export default function Home() {
         <Divisions />
         <Rules />
         <RegisterCTA />
-        <Contact /> */}
-        <ThankYouPage />
+        <Contact />
+        {/* <ThankYouPage /> */}
       </main>
       <Footer />
     </>

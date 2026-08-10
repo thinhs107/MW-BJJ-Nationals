@@ -1,9 +1,9 @@
 'use client'
 
 const items = [
-  { highlight: 'Spring 2026', text: 'Round Robin Gi & No-Gi' },
-  { text: 'April 18, 2026 · South Oldham High School' },
-  { highlight: '10th Year Anniversary', text: 'A Decade of Excellence' },
+  { highlight: 'Fall 2026', text: 'Round Robin Gi & No-Gi' },
+  { text: 'October 24, 2026 · Marion C. Moore School' },
+  { highlight: '11th Year', text: 'A Decade of Excellence' },
   { highlight: 'Registration Open', text: 'Sign up on SmoothComp' },
   // { text: 'Contact: (502) 384-7084 · (502) 422-1957' },
 ]

@@ -96,7 +96,7 @@ export default function About() {
         </p>
         <p style={{ fontSize:'15px', lineHeight:1.7, color:'#AAAAAA', marginBottom:'32px' }}>
           Whether you're stepping on the mat for the first time or a seasoned competitor, our
-          Spring 2026 event delivers a premier competitive experience in a professional setting.
+          Fall 2026 event delivers a premier competitive experience in a professional setting.
         </p>
 
         <div className="about-stats-grid">
