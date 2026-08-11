@@ -91,7 +91,7 @@ export default function Countdown() {
             fontFamily:'var(--font-barlow-condensed)', fontSize:'11px',
             letterSpacing:'2px', color:'rgba(255,255,255,0.7)', textTransform:'uppercase',
           }}>
-            South Oldham High School
+            Moore High School
           </span>
         </div>
       </div>

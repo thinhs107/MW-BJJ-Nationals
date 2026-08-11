@@ -149,7 +149,7 @@ export default function DivisionPageLayout({
             {[
               { label: 'Date',   value: 'October 24, 2026' },
               { label: 'Format', value: 'Round Robin' },
-              { label: 'Venue',  value: 'South Oldham HS, Louisville KY' },
+              { label: 'Venue',  value: 'Moore HS, Louisville KY' },
             ].map(m => (
               <div key={m.label} style={{ borderLeft: '2px solid #C8102E', paddingLeft: '12px' }}>
                 <span style={{

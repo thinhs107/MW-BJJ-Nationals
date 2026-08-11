@@ -5,7 +5,7 @@ import CursorEffect from '@/components/CursorEffect'
 export const metadata: Metadata = {
   title: 'Teen 16–17 No-Gi Division Rules',
   description:
-    'Rules, weight classes, and time limits for the Teen 16–17 No-Gi division at the Midwest BJJ Nationals Spring 2026 on April 18, Louisville KY.',
+    'Rules, weight classes, and time limits for the Teen 16–17 No-Gi division at the Midwest BJJ Nationals Spring 2026 on October 24, Louisville KY.',
   alternates: { canonical: '/divisions/teen-no-gi' },
   openGraph: {
     title: 'Teen 16–17 No-Gi Division — Midwest BJJ Nationals 2026',

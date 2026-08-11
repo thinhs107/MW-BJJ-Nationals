@@ -35,12 +35,12 @@ export function SectionTitle({ children }: { children: React.ReactNode }) {
 const cards = [
   {
     num: '01', icon: '📅', title: 'Date',
-    main: 'April 18\n2026',
+    main: 'October 24\n2026',
     sub: 'Saturday · All Day\nDoors open 7:00 AM',
   },
   {
     num: '02', icon: '📍', title: 'Location',
-    main: 'South Oldham\nHigh School',
+    main: 'Moore\nHigh School',
     sub: 'Louisville, Kentucky\nFull mat facility',
   },
   {

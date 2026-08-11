@@ -40,7 +40,7 @@ const jsonLd = {
       },
       location: {
         '@type': 'Place',
-        name: 'South Oldham High School',
+        name: 'Moore High School',
         address: {
           '@type': 'PostalAddress',
           addressLocality: 'Louisville',
@@ -148,7 +148,7 @@ const jsonLd = {
           name: 'Where is the Midwest BJJ Nationals held?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'The tournament is held at South Oldham High School in Louisville, Kentucky.',
+            text: 'The tournament is held at Moore High School in Louisville, Kentucky.',
           },
         },
       ],
