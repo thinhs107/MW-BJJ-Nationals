@@ -1,7 +1,7 @@
 'use client'
 
 const stats = [
-  { number:'10',   label:'Years Running' },
+  { number:'11',   label:'Years Running' },
   { number:'100+', label:'Competitors' },
   { number:'6+',   label:'Divisions' },
 ]
@@ -38,7 +38,7 @@ export default function About() {
             borderRadius:'50%', display:'flex', flexDirection:'column',
             alignItems:'center', justifyContent:'center', textAlign:'center',
           }}>
-            <span style={{ fontFamily:'var(--font-bebas)', fontSize:'46px', color:'#CC0000', lineHeight:1 }}>10</span>
+            <span style={{ fontFamily:'var(--font-bebas)', fontSize:'46px', color:'#CC0000', lineHeight:1 }}>11</span>
             <span style={{ fontFamily:'var(--font-barlow-condensed)', fontSize:'10px', letterSpacing:'3px', color:'#AAAAAA', textTransform:'uppercase' }}>
               Years Strong
             </span>
