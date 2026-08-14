@@ -25,7 +25,7 @@ const SITE_URL = 'https://mwbjjn.com'
 const SITE_NAME = 'Midwest BJJ Nationals'
 const TITLE = 'Midwest BJJ Nationals 2026 | 11th Year — October 24, Louisville KY'
 const DESCRIPTION =
-  'Register now for the Midwest BJJ Nationals Spring 2026 — a Round Robin Gi & No-Gi Brazilian Jiu Jitsu tournament on October 24, 2026 at Moore High School, Louisville, Kentucky. Celebrating 10 years of excellence. All ages and skill levels welcome.'
+  'Register now for the Midwest BJJ Nationals Fall 2026 — a Round Robin Gi & No-Gi Brazilian Jiu Jitsu tournament on October 24, 2026 at Moore High School, Louisville, Kentucky. Celebrating 11 years of excellence. All ages and skill levels welcome.'
 
 export const metadata: Metadata = {
   // ── Core ──────────────────────────────────────────────────────────
