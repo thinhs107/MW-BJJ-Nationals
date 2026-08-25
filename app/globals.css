@@ -294,6 +294,32 @@ body::after {
 }
 @media (min-width: 768px) { .contact-grid { grid-template-columns: 1fr 1fr; gap: 40px; } }
 
+/* ===================== SPONSORS ===================== */
+.sponsors-wrap {
+  padding: 0 24px 56px;
+}
+@media (min-width: 640px)  { .sponsors-wrap { padding: 0 40px 80px; } }
+@media (min-width: 1024px) { .sponsors-wrap { padding: 0 60px 80px; } }
+
+.sponsors-title-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  background: var(--black-border);
+}
+@media (min-width: 640px) { .sponsors-title-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.sponsors-gold-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: var(--black-border);
+}
+@media (min-width: 640px) { .sponsors-gold-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.sponsor-card-pad { padding: 28px; }
+@media (min-width: 640px) { .sponsor-card-pad { padding: 40px; } }
+
 /* ===================== FOOTER ===================== */
 .footer-wrap {
   padding: 40px 24px 24px;

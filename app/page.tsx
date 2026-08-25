@@ -8,10 +8,11 @@ import Divisions from '@/components/Divisions'
 import Rules from '@/components/Rules'
 import RegisterCTA from '@/components/RegisterCTA'
 import Contact from '@/components/Contact'
+import Sponsors from '@/components/Sponsors'
+import PrizeModal from '@/components/PrizeModal'
 import Footer from '@/components/Footer'
 import CursorEffect from '@/components/CursorEffect'
 import ScrollReveal from '@/components/ScrollReveal'
-import ThankYouPage from '@/components/ThankYouPage'
 
 // ── JSON-LD Structured Data ────────────────────────────────────────────────
 const jsonLd = {
@@ -159,7 +160,6 @@ const jsonLd = {
 export default function Home() {
   return (
     <>
-      {/* Inject JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -167,9 +167,11 @@ export default function Home() {
 
       <CursorEffect />
       <ScrollReveal />
+      <PrizeModal />
       <Navbar />
       <main>
         <Hero />
+        <Sponsors />
         <Ticker />
         <Countdown />
         <EventInfo />
@@ -178,7 +180,6 @@ export default function Home() {
         <Rules />
         <RegisterCTA />
         <Contact />
-        {/* <ThankYouPage /> */}
       </main>
       <Footer />
     </>

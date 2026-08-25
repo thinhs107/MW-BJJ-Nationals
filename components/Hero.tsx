@@ -287,6 +287,34 @@ export default function Hero() {
           <strong style={{ color: '#C9A84C', fontWeight: 700 }}>October 24, 2026</strong>
           {' '}· Marion C. Moore School, Louisville KY
         </p>
+          {/* Prize callout — mirrors the badge treatment above the title */}
+          <div
+            className="animate-fade-up delay-600"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '10px',
+              background: 'rgba(201,168,76,0.12)', border: '1px solid rgba(201,168,76,0.5)',
+              padding: '10px 20px', marginBottom: '32px',
+              clipPath: 'polygon(0 0,calc(100% - 8px) 0,100% 100%,8px 100%)',
+            }}
+          >
+            <span
+              style={{
+                fontFamily: 'var(--font-bebas)', fontSize: 'clamp(20px,3vw,26px)',
+                color: '#C9A84C', lineHeight: 1,
+              }}
+            >
+              $250
+            </span>
+            <span
+              style={{
+                fontFamily: 'var(--font-barlow-condensed)', fontWeight: 700,
+                fontSize: 'clamp(11px,2vw,13px)', letterSpacing: '2px',
+                color: '#FFFFFF', textTransform: 'uppercase',
+              }}
+            >
+              No-Gi Money Bracket<br />Adult Podium Finishers
+            </span>
+          </div>
 
         {/* Buttons */}
         <div className="hero-actions animate-fade-up delay-800">
