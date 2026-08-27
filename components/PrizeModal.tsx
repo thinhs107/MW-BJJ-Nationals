@@ -6,6 +6,9 @@ import { X } from "lucide-react";
 const SESSION_KEY = "mwbjjn_prize_modal_seen";
 const REGISTER_URL = "https://smoothcomp.com/en/event/34213";
 
+const LEVELS = ["Novice", "Intermediate", "Advanced"];
+const PRIZE = "$250";
+
 export default function PrizeModal() {
   const [open, setOpen] = useState(false);
 
@@ -67,10 +70,10 @@ export default function PrizeModal() {
             className="mt-2 text-4xl sm:text-5xl leading-none"
             style={{ fontFamily: "var(--font-bebas), cursive", color: "var(--black)" }}
           >
-            $250 Money<br />Bracket
+            $250 Money<br />Brackets
           </h2>
           <p className="mt-3 text-sm" style={{ color: "var(--white-dim)" }}>
-            No-Gi · Adult Men &amp; Women · All Skill Levels
+            No-Gi · Adult Men &amp; Women · Novice, Intermediate &amp; Advanced
           </p>
         </div>
 
@@ -84,26 +87,84 @@ export default function PrizeModal() {
           <ol className="mt-3 space-y-2 text-sm leading-relaxed" style={{ color: "var(--white)" }}>
             <li>
               <span style={{ color: "var(--red)" }} className="font-bold mr-1.5">1.</span>
-              Compete in your regular adult No-Gi absolute bracket.
+              Compete in your regular adult No-Gi bracket for your skill level.
             </li>
             <li>
               <span style={{ color: "var(--red)" }} className="font-bold mr-1.5">2.</span>
-              Podium, and you're in — you advance to a single-elimination money bracket.
+              Podium, and you're in — you advance to the money bracket for your division and skill level.
             </li>
             <li>
               <span style={{ color: "var(--red)" }} className="font-bold mr-1.5">3.</span>
-              Win the money bracket, take home $250.
+              Win your money bracket, take home $250.
             </li>
           </ol>
         </div>
 
-        <div className="mx-6 my-5 flex items-center justify-between px-5 py-4" style={{ background: "var(--black-border)" }}>
-          <span className="text-sm font-semibold" style={{ color: "var(--black)" }}>
-            Money Bracket Winner
-          </span>
-          <span className="text-2xl" style={{ fontFamily: "var(--font-bebas), cursive", color: "var(--red)" }}>
-            $250
-          </span>
+        <div className="mx-6 my-5 overflow-hidden" style={{ border: "1px solid var(--black-border)" }}>
+          <table className="w-full border-collapse text-sm">
+            <thead>
+              <tr style={{ background: "var(--black)" }}>
+                <th
+                  className="text-left font-bold uppercase tracking-wide px-4 py-3"
+                  style={{ color: "var(--gold)", fontSize: "11px" }}
+                >
+                  Level
+                </th>
+                <th
+                  className="text-center font-bold uppercase tracking-wide px-4 py-3"
+                  style={{ color: "var(--gold)", fontSize: "11px" }}
+                >
+                  Women
+                </th>
+                <th
+                  className="text-center font-bold uppercase tracking-wide px-4 py-3"
+                  style={{ color: "var(--gold)", fontSize: "11px" }}
+                >
+                  Men
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {LEVELS.map((level, i) => (
+                <tr
+                  key={level}
+                  style={i % 2 === 1 ? { background: "rgba(0,0,0,0.03)" } : undefined}
+                >
+                  <td
+                    className="px-4 py-3 font-semibold"
+                    style={{
+                      color: "var(--black)",
+                      borderTop: "1px solid var(--black-border)",
+                    }}
+                  >
+                    {level}
+                  </td>
+                  <td
+                    className="px-4 py-3 text-center"
+                    style={{
+                      fontFamily: "var(--font-bebas), cursive",
+                      fontSize: "18px",
+                      color: "var(--red)",
+                      borderTop: "1px solid var(--black-border)",
+                    }}
+                  >
+                    {PRIZE}
+                  </td>
+                  <td
+                    className="px-4 py-3 text-center"
+                    style={{
+                      fontFamily: "var(--font-bebas), cursive",
+                      fontSize: "18px",
+                      color: "var(--red)",
+                      borderTop: "1px solid var(--black-border)",
+                    }}
+                  >
+                    {PRIZE}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
 
         <div className="px-6 pb-8 flex flex-col gap-2">
