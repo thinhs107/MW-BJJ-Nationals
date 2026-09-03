@@ -6,13 +6,35 @@ export interface Sponsor {
   name: string;
   logo: string;
   url?: string;
-  tier: "presenting" | "title" | "gold" | "partner";
+  tier: "Legacy" | "Gold" | "Silver" | "Bronze" | "partner";
 }
 
 const defaultSponsors: Sponsor[] = [
-  { name: "Energy Control", logo: "/sponsors/energy-control.png", url: "https://www.energycontrolky.com/", tier: "presenting" },
-  // { name: "Another Sponsor", logo: "/sponsors/other.png", tier: "title" },
+  { name: "Energy Control", logo: "/sponsors/energy-control.png", url: "https://www.energycontrolky.com/", tier: "Legacy" },
+  { name: "HIGHVIBE METTAVERSE", logo: "/sponsors/Highvibe-silver-sponsor.jpg", url: "https://www.highvibemettaverse.com/", tier: "Silver" },
+  { name: "LuLiFi", logo: "/sponsors/LuLiFi-Logo.jpg", url: "https://www.lulifi.com/", tier: "partner" },
 ];
+
+const tierLabels: Record<Sponsor["tier"], string> = {
+  Legacy: "Legacy Sponsor",
+  Gold: "Gold Sponsors",
+  Silver: "Silver Sponsors",
+  Bronze: "Bronze Sponsors",
+  partner: "Partners",
+};
+
+function TierLabel({ tier }: { tier: Sponsor["tier"] }) {
+  return (
+    <div className="text-center mb-3">
+      <span
+        className="text-xs font-bold uppercase tracking-[0.25em]"
+        style={{ color: "var(--red)" }}
+      >
+        {tierLabels[tier]}
+      </span>
+    </div>
+  );
+}
 
 function SponsorCard({
   sponsor,
@@ -62,9 +84,10 @@ export default function Sponsors({
 }: {
   sponsors?: Sponsor[];
 }) {
-  const presenting = sponsors.filter((s) => s.tier === "presenting");
-  const title = sponsors.filter((s) => s.tier === "title");
-  const gold = sponsors.filter((s) => s.tier === "gold");
+  const Legacy = sponsors.filter((s) => s.tier === "Legacy");
+  const Gold = sponsors.filter((s) => s.tier === "Gold");
+  const Silver = sponsors.filter((s) => s.tier === "Silver");
+  const Bronze = sponsors.filter((s) => s.tier === "Bronze");
   const partner = sponsors.filter((s) => s.tier === "partner");
 
   if (sponsors.length === 0) return null;
@@ -86,39 +109,62 @@ export default function Sponsors({
         </h2>
       </div>
 
-      {presenting.length > 0 && (
+      {Legacy.length > 0 && (
         <div className="max-w-2xl mx-auto mb-6">
-          {presenting.map((s) => (
+          <TierLabel tier="Legacy" />
+          {Legacy.map((s) => (
             <SponsorCard key={s.name} sponsor={s} size="xl" />
           ))}
         </div>
       )}
 
-      {title.length > 0 && (
-        <div
-          className={`mb-[2px] ${title.length === 1 ? "max-w-xl mx-auto" : "sponsors-title-grid"}`}
-        >
-          {title.map((s) => (
-            <SponsorCard key={s.name} sponsor={s} size="lg" />
-          ))}
+      {Gold.length > 0 && (
+        <div className="max-w-2xl mx-auto mb-6">
+          <TierLabel tier="Gold" />
+          <div
+            className={Gold.length === 1 ? "" : "sponsors-Silver-grid"}
+          >
+            {Gold.map((s) => (
+              <SponsorCard key={s.name} sponsor={s} size="lg" />
+            ))}
+          </div>
         </div>
       )}
 
-      {gold.length > 0 && (
-        <div className="sponsors-gold-grid mb-[2px]">
-          {gold.map((s) => (
-            <SponsorCard key={s.name} sponsor={s} size="md" />
-          ))}
+      {Silver.length > 0 && (
+        <div className="mb-[2px]">
+          <TierLabel tier="Silver" />
+          <div
+            className={Silver.length === 1 ? "max-w-xl mx-auto" : "sponsors-Silver-grid"}
+          >
+            {Silver.map((s) => (
+              <SponsorCard key={s.name} sponsor={s} size="lg" />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {Bronze.length > 0 && (
+        <div className="mb-[2px]">
+          <TierLabel tier="Bronze" />
+          <div className="sponsors-Bronze-grid">
+            {Bronze.map((s) => (
+              <SponsorCard key={s.name} sponsor={s} size="md" />
+            ))}
+          </div>
         </div>
       )}
 
       {partner.length > 0 && (
-        <div className="flex flex-wrap items-center justify-center gap-8 pt-10">
-          {partner.map((s) => (
-            <div key={s.name} className="w-28">
-              <SponsorCard sponsor={s} size="sm" />
-            </div>
-          ))}
+        <div className="pt-10">
+          <TierLabel tier="partner" />
+          <div className="flex flex-wrap items-center justify-center gap-8">
+            {partner.map((s) => (
+              <div key={s.name} className="w-56">
+                <SponsorCard sponsor={s} size="lg" />
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </section>
