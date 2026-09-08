@@ -12,6 +12,7 @@ export interface Sponsor {
 const defaultSponsors: Sponsor[] = [
   { name: "Energy Control", logo: "/sponsors/energy-control.png", url: "https://www.energycontrolky.com/", tier: "Legacy" },
   { name: "HIGHVIBE METTAVERSE", logo: "/sponsors/Highvibe-silver-sponsor.jpg", url: "https://www.highvibemettaverse.com/", tier: "Silver" },
+  { name: "FREEDOM LIFESTYLE MEDICINE", logo: "/sponsors/FreedomLifestyle.jpeg", url: "https://freelifemed.com/", tier: "Silver" },
   { name: "LuLiFi", logo: "/sponsors/LuLiFi-Logo.jpg", url: "https://www.lulifi.com/", tier: "partner" },
 ];
 

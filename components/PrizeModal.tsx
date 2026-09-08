@@ -7,7 +7,7 @@ const SESSION_KEY = "mwbjjn_prize_modal_seen";
 const REGISTER_URL = "https://smoothcomp.com/en/event/34213";
 
 const LEVELS = ["Novice", "Intermediate", "Advanced"];
-const PRIZE = "$250";
+const PRIZE = "$350";
 
 export default function PrizeModal() {
   const [open, setOpen] = useState(false);

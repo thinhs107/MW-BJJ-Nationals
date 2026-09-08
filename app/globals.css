@@ -317,6 +317,27 @@ body::after {
 }
 @media (min-width: 640px) { .sponsors-gold-grid { grid-template-columns: repeat(3, 1fr); } }
 
+.sponsors-Silver-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: var(--black-border);
+}
+@media (min-width: 640px) {
+  .sponsors-Silver-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+.sponsors-Bronze-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: var(--black-border);
+}
+@media (min-width: 640px) { .sponsors-Bronze-grid { grid-template-columns: repeat(4, 1fr); } }
 .sponsor-card-pad { padding: 28px; }
 @media (min-width: 640px) { .sponsor-card-pad { padding: 40px; } }
 

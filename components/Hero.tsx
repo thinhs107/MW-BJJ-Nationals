@@ -303,7 +303,7 @@ export default function Hero() {
                 color: '#C9A84C', lineHeight: 1,
               }}
             >
-              $250
+              $350
             </span>
             <span
               style={{
