@@ -337,7 +337,7 @@ body::after {
   gap: 2px;
   background: var(--black-border);
 }
-@media (min-width: 640px) { .sponsors-Bronze-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 640px) { .sponsors-Bronze-grid { grid-template-columns: repeat(1, 1fr); } }
 .sponsor-card-pad { padding: 28px; }
 @media (min-width: 640px) { .sponsor-card-pad { padding: 40px; } }
 
