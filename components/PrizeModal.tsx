@@ -70,7 +70,7 @@ export default function PrizeModal() {
             className="mt-2 text-4xl sm:text-5xl leading-none"
             style={{ fontFamily: "var(--font-bebas), cursive", color: "var(--black)" }}
           >
-            $250 Money<br />Brackets
+            $350 Money<br />Brackets
           </h2>
           <p className="mt-3 text-sm" style={{ color: "var(--white-dim)" }}>
             No-Gi · Adult Men &amp; Women · Novice, Intermediate &amp; Advanced
