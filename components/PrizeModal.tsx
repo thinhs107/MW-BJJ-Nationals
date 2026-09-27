@@ -95,7 +95,7 @@ export default function PrizeModal() {
             </li>
             <li>
               <span style={{ color: "var(--red)" }} className="font-bold mr-1.5">3.</span>
-              Win your money bracket, take home $250.
+              Win your money bracket, take home $350.
             </li>
           </ol>
         </div>
